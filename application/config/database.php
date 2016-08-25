@@ -48,11 +48,11 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'db_betting';
-$db['default']['dbdriver'] = 'mysql';
+$db['default']['hostname'] = 'ec2-54-243-48-181.compute-1.amazonaws.com';
+$db['default']['username'] = 'hgdulmuedwedwq';
+$db['default']['password'] = 'M9h6WR9_JLvNypMIGBdEaSgJUq';
+$db['default']['database'] = 'dei8b3q4jnin15';
+$db['default']['dbdriver'] = 'postgre';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = TRUE;
