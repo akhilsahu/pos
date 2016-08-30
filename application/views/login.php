@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>BettingApp | Log in</title>
+    <title>BusPos | Log in</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="<?php echo base_url();?>bootstrap/css/bootstrap.min.css">
     <style type="text/css">
@@ -28,7 +28,7 @@
       <div class="wrapper">
     <div class="login-box">
       <div class="login-logo">
-        <a href="#"><b>Betting</b>App</a>
+        <a href="#"><b>Bus</b>Pos</a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>

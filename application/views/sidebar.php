@@ -22,24 +22,85 @@ $user=$this->session->userdata('user');
                 <i class="fa fa-th"></i> <span>Dashboard</span>
               </a>
             </li>
+			<?php if($user['int_user_type']==1){ ?>
             <li class="treeview">
               <a href="">
-                <i class="fa fa-dashboard"></i> <span>Book Keepers</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-dashboard"></i> <span>Organizations</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?php echo site_url();?>/bkeepers/add"><i class="fa fa-circle-o"></i> Add </a></li>
-                <li class="active"><a href="<?php echo site_url();?>/bkeepers/bkeepers_list"><i class="fa fa-circle-o"></i> List</a></li>
+                <li><a href="<?php echo site_url();?>/organization/add"><i class="fa fa-circle-o"></i> Add </a></li>
+                <li class="active"><a href="<?php echo site_url();?>/organization/organization_list"><i class="fa fa-circle-o"></i> List</a></li>
               </ul>
             </li>
-            <li class="treeview">
+           <li class="treeview">
               <a href="">
-                <i class="fa fa-dashboard"></i> <span>Record</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-dashboard"></i> <span>Staff</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?php echo site_url();?>/record/add"><i class="fa fa-circle-o"></i> Add </a></li>
-                <li class="active"><a href="<?php echo site_url();?>/record/record_list"><i class="fa fa-circle-o"></i> List</a></li>
+                <li class="active"><a href="<?php echo site_url();?>/staff/staff_list"><i class="fa fa-circle-o"></i> View</a></li>
               </ul>
             </li>
+			 <li class="treeview">
+              <a href="">
+                <i class="fa fa-dashboard"></i> <span>Locations</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li class="active"><a href="<?php echo site_url();?>/location/location_list"><i class="fa fa-circle-o"></i> View</a></li>
+              </ul>
+            </li>
+			<li class="treeview">
+              <a href="">
+                <i class="fa fa-dashboard"></i> <span>Fare</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li class="active"><a href="<?php echo site_url();?>/fare/fare_list"><i class="fa fa-circle-o"></i> View</a></li>
+              </ul>
+            </li>
+			<li class="treeview">
+              <a href="">
+                <i class="fa fa-dashboard"></i> <span>Transactions</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li class="active"><a href="<?php echo site_url();?>/ticket/transaction_history"><i class="fa fa-circle-o"></i> View</a></li>
+              </ul>
+            </li>
+			<?php }else{ ?>
+			<li class="treeview">
+              <a href="">
+                <i class="fa fa-dashboard"></i> <span>Staff</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+				<li><a href="<?php echo site_url();?>/staff/add"><i class="fa fa-circle-o"></i> Add </a></li>
+                <li class="active"><a href="<?php echo site_url();?>/staff/staff_list"><i class="fa fa-circle-o"></i> View</a></li>
+              </ul>
+            </li>
+			 <li class="treeview">
+              <a href="">
+				<i class="fa fa-dashboard"></i> <span>Locations</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+				<li><a href="<?php echo site_url();?>/location/add"><i class="fa fa-circle-o"></i> Add </a></li>
+                <li class="active"><a href="<?php echo site_url();?>/location/location_list"><i class="fa fa-circle-o"></i> View</a></li>
+              </ul>
+            </li>
+			<li class="treeview">
+              <a href="">
+                <i class="fa fa-dashboard"></i> <span>Fare</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+				<li><a href="<?php echo site_url();?>/fare/add"><i class="fa fa-circle-o"></i> Add </a></li>
+                <li class="active"><a href="<?php echo site_url();?>/fare/fare_list"><i class="fa fa-circle-o"></i> View</a></li>
+              </ul>
+            </li>
+			<li class="treeview">
+              <a href="">
+                <i class="fa fa-dashboard"></i> <span>Transactions</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li class="active"><a href="<?php echo site_url();?>/ticket/transaction_history"><i class="fa fa-circle-o"></i> View</a></li>
+              </ul>
+            </li>
+			<?php } ?>
            </ul>
         </section>
         <!-- /.sidebar -->
