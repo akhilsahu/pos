@@ -53,6 +53,7 @@ $db['default']['username'] = 'hgdulmuedwedwq';
 $db['default']['password'] = 'M9h6WR9_JLvNypMIGBdEaSgJUq';
 $db['default']['database'] = 'dei8b3q4jnin15';
 $db['default']['dbdriver'] = 'postgre';
+//$db['default']['port'] = '5432';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = TRUE;
