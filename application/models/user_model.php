@@ -133,20 +133,8 @@ class User_model extends CI_Model{
 	
 	function update_indv($data)
 	{
-		if($data['old_password']!=$data['password'])
-		{
-			$password=md5($data['password']);
-		}
-		else
-		{
-			$password=$data['old_password'];
-		}
-		$extra_query='';
-		if($data['file_name']!='')
-		{
-			$extra_query=",txt_profile_image='".$data['file_name']."'";
-		}
-		$sql="update ".$this->table." set txt_fname='".$data['fname']."', txt_lname='".$data['lname']."', txt_password='$password', txt_email='".$data['email']."'".$extra_query." where int_user_id=".$data['user_id']."";
+		
+		$sql="update ".$this->table." set txt_fname='".$data['fname']."', txt_lname='".$data['lname']."', txt_email='".$data['email']."', txt_cell_no='".$data['cellno']."' where int_user_id=".$data['user_id']."";
 		$query=$this->db->query($sql);
 		return $query?1:0;
 	}

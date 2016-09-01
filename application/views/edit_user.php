@@ -1,7 +1,19 @@
 <?php
 $user=$details[0];
+$org_option='';
+foreach($organizations as $organization)
+{
+	if($organization['int_organization_id']==$user['int_organization_id'])
+	{
+		$org_option.='<option value="'.$organization['int_organization_id'].'" selected="selected">'.$organization['txt_name'].'</option>';
+	}
+	else
+	{
+		$org_option.='<option value="'.$organization['int_organization_id'].'">'.$organization['txt_name'].'</option>';
+	}
+	
+}
 ?>
-
 <div class="content-wrapper">
 
 <div class="row">
@@ -12,7 +24,7 @@ $user=$details[0];
 
                 <div class="box-header with-border">
 
-                  <h3 class="box-title">Update User</h3>
+                  <h3 class="box-title">Add User</h3>
 
                 </div><!-- /.box-header -->
 
@@ -28,8 +40,7 @@ $user=$details[0];
 
                       <div class="col-sm-8">
 						<input type="hidden" id="user_id" name="user_id" value="<?php echo $user['int_user_id']; ?>">
-
-                        <input type="text" placeholder="Username" readonly="readonly" value="<?php echo $user['txt_username']; ?>" id="username" name="username" class="form-control">
+                        <input type="text" placeholder="Username" value="<?php echo $user['txt_username']; ?>" id="username" name="username" class="form-control">
 
                       </div>
 
@@ -37,61 +48,22 @@ $user=$details[0];
 
                     <div class="form-group">
 
-                      <label class="col-sm-4 control-label" for="inputEmail3">First Name</label>
+                      <label class="col-sm-4 control-label" for="inputEmail3">Name</label>
 
                       <div class="col-sm-8">
 
-                        <input type="text" placeholder="First Name" id="fname" name="fname" value="<?php echo $user['txt_fname']; ?>" class="form-control">
+                        <input type="text" placeholder="First Name" id="name" name="name" value="<?php echo $user['txt_name']; ?>" class="form-control">
 
                       </div>
 
                     </div>
-
-                    <div class="form-group">
-
-                      <label class="col-sm-4 control-label" for="inputEmail3">Last Name</label>
-
-                      <div class="col-sm-8">
-
-                        <input type="text" placeholder="Last Name" value="<?php echo $user['txt_lname']; ?>" id="lname" name="lname" class="form-control">
-
-                      </div>
-
-                    </div>
-
-                    <div class="form-group">
-
-                      <label class="col-sm-4 control-label" for="inputPassword3">Password</label>
-
-                      <div class="col-sm-8">
-
-                        <input type="hidden" id="old_password" name="old_password" value="<?php echo $user['txt_password'] ?>">
-
-                        <input type="password" placeholder="Password" id="password" name="password" value="<?php echo $user['txt_password']; ?>" class="form-control">
-
-                      </div>
-
-                    </div>
-
-                    <div class="form-group">
-
-                      <label class="col-sm-4 control-label" for="inputPassword3">Confirm Password</label>
-
-                      <div class="col-sm-8">
-
-                        <input type="password" placeholder="Confirm Password" id="confirm_password" name="confirm_password" value="<?php echo $user['txt_password']; ?>" class="form-control">
-
-                      </div>
-
-                    </div>
-
-                    <div class="form-group">
+					<div class="form-group">
 
                       <label class="col-sm-4 control-label" for="inputPassword3">Email</label>
 
                       <div class="col-sm-8">
 
-                          <input type="email" id="email" name="email" value="<?php echo $user['txt_email']; ?>" class="form-control">                        
+                          <input type="email" id="email" name="email" value="<?php echo $user['txt_email'] ?>" class="form-control">                        
 
                       </div>
 
@@ -99,12 +71,27 @@ $user=$details[0];
 					
 					<div class="form-group">
 
-                      <label class="col-sm-4 control-label" for="inputPassword3">Profile Image</label>
+                      <label class="col-sm-4 control-label" for="inputPassword3">Cell No</label>
 
                       <div class="col-sm-8">
 
-                        <input type="file" id="profile_image" name="profile_image" class="form-control">
-						<img src="<?php echo base_url()."uploads/".$user[txt_profile_image]; ?>" alt="profile-image" class="img-circle" style="width:100px;height:100px;"> 
+                          <input type="email" id="cellno" name="cellno" value="<?php echo $user['txt_cell_no'] ?>" class="form-control">                        
+
+                      </div>
+
+                    </div>
+					
+					<div class="form-group">
+
+                      <label class="col-sm-4 control-label" for="inputPassword3">Organization</label>
+
+                      <div class="col-sm-8">
+                        
+						  <select id="organization" name="organization" class="form-control" disabled="disabled">
+							<option value="0">Select Organization</option>
+							<?php echo $org_option; ?>
+						  </select>
+
                       </div>
 
                     </div>
@@ -145,61 +132,49 @@ $(document).ready(function(){
 
     }
 
-    if($("#fname").val()=="")
+    if($("#name").val()=="")
 
     {
 
-      alert("Please enter first name");
+      alert("Please enter name");
 
-      $("#fname").focus();
+      $("#name").focus();
 
       return false;
 
     }
-
-    if($("#lname").val()=="")
+	
+	if($("#email").val()=="")
 
     {
 
-      alert("Please enter last name");
+      alert("Please enter email");
 
-      $("#lname").focus();
+      $("#email").focus();
 
       return false;
 
     }
-
-    if($("#password").val()=="")
+	
+	if($("#cellno").val()=="")
 
     {
 
-      alert("Please enter password");
+      alert("Please enter cell number");
 
-      $("#password").focus();
+      $("#cellno").focus();
 
       return false;
 
     }
-
-    if($("#confirm_password").val()=="")
-
-    {
-
-      alert("Please enter confirm password");
-
-      $("#confirm_password").focus();
-
-      return false;
-
-    }
-
-    if($("#confirm_password").val()!=$("#password").val())
+	
+	if($("#organization").val()=="0")
 
     {
 
-      alert("Password do not match");
+      alert("Please select organization");
 
-      $("#confirm_password").focus();
+      $("#organization").focus();
 
       return false;
 

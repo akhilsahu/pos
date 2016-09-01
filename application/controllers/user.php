@@ -219,7 +219,7 @@ class User extends CI_Controller{
 	function delete()
 	{
 		$data=$this->input->get();
-		$this->coupon_model->delete_user($data['id']);
+		$this->user_model->delete_user($data['id']);
 		redirect('user/user_list', 'refresh');
 	}
 
@@ -250,32 +250,8 @@ class User extends CI_Controller{
 		$data=$this->input->post();
 		$user=$this->session->userdata('user');
 		$data['user']=$user['int_user_id'];
-		if($_FILES['profile_image']['name']!='')
-		{
-			if (($_FILES["profile_image"]["type"] == "image/gif") || ($_FILES["profile_image"]["type"] == "image/jpeg")|| ($_FILES["profile_image"]["type"] == "image/jpg")|| ($_FILES["profile_image"]["type"] == "image/pjpeg")|| ($_FILES["profile_image"]["type"] == "image/x-png")|| ($_FILES["profile_image"]["type"] == "image/png")){
-				$ext=explode(".",$_FILES["profile_image"]["name"]);		
-				$file_name=date("YmdHis").".".$ext[count($ext)-1];
-				move_uploaded_file($_FILES['profile_image'][tmp_name],"uploads/".$file_name);
-				$data['file_name']=$file_name;
-			}
-		}
 		$this->user_model->update_indv($data);
 		redirect('user/user_list', 'refresh');
-	}
-	
-	function contact_list()
-	{
-		$user=$this->session->userdata('user');
-		if(isset($user['int_user_id']) && $user['int_user_id']!='')
-		{
-			$data["page"]="contact_list";
-			$data["contacts"]=$this->user_model->get_all_contacts();
-			$this->load->view('page',$data);	
-		}
-		else
-		{
-			$this->load->view('login');	
-		}
 	}
 }
 
