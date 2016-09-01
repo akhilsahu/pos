@@ -8,7 +8,7 @@ class Organization_model extends CI_Model{
 
 	function save($data)
 	{
-		$sql_product="insert into tab_book_keepers values(DEFAULT,'".$data['bkeeper_name']."','".$data['file_name']."')";
+		$sql_product="insert into tab_organizations values(DEFAULT,'".$data['org_name']."','".$data['contact']."','".$data['address']."','".$data['zipcode']."')";
 		$query=$this->db->query($sql_product);
 		return 1;
 	}

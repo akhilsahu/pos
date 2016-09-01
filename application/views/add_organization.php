@@ -10,18 +10,30 @@ $user=$this->session->userdata('user');
                   <h3 class="box-title">Add Organization</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form method="post" action="<?php echo site_url();?>/bkeepers/save" enctype="multipart/form-data">
+                <form method="post" action="<?php echo site_url();?>/organization/save" enctype="multipart/form-data">
                     <div class="box-body">
 					<div class="form-group">
                       <label class="col-sm-4 control-label" for="inputEmail3">Name</label>
                       <div class="col-sm-8">
-                        <input type="text" placeholder="Book Keeper Name" id="bkeeper_name" name="bkeeper_name" value="" class="form-control">
+                        <input type="text" placeholder="Organization Name" id="org_name" name="org_name" value="" class="form-control">
                       </div>
                     </div>
 					<div class="form-group">
-                      <label class="col-sm-4 control-label" for="inputEmail3">Logo</label>
+                      <label class="col-sm-4 control-label" for="inputEmail3">Contact</label>
                       <div class="col-sm-8">
-                        <input type="file" id="bkeeper_logo" name="bkeeper_logo" value="" class="form-control">
+                        <input type="text" placeholder="Contact" id="contact" name="contact" value="" class="form-control">
+                      </div>
+                    </div>
+					<div class="form-group">
+                      <label class="col-sm-4 control-label" for="inputEmail3">Address</label>
+                      <div class="col-sm-8">
+						<textarea id="address" name="address"  value="" class="form-control">
+                      </div>
+                    </div>
+					<div class="form-group">
+                      <label class="col-sm-4 control-label" for="inputEmail3">Zip</label>
+                      <div class="col-sm-8">
+                        <input type="text" placeholder="Zipcode" id="zipcode" name="zipcode" value="" class="form-control">
                       </div>
                     </div>
 				  </div><!-- /.box-body -->
