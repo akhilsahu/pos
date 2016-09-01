@@ -1,13 +1,13 @@
 <?php
 $user=$this->session->userdata('user');
-$org=$details[0]);
+$org=$details[0];
 ?>
 <div class="content-wrapper">
 <div class="row">
     <div class="col-md-8">
       <div class="box box-info">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Add Organization</h3>
+                  <h3 class="box-title">Edit Organization</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
                 <form method="post" action="<?php echo site_url();?>/organization/update" enctype="multipart/form-data">
