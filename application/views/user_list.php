@@ -7,6 +7,7 @@ $complete_structure='';
 foreach($users as $user)
 
 {
+	
 	$role=$user['int_user_type']=='1'?'Admin':'Organization Admin';
 
   $complete_structure.='<tr role="row" class="odd">
