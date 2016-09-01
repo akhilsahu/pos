@@ -64,6 +64,15 @@ $user=$this->session->userdata('user');
                 <li class="active"><a href="<?php echo site_url();?>/ticket/transaction_history"><i class="fa fa-circle-o"></i> View</a></li>
               </ul>
             </li>
+			<li class="treeview">
+              <a href="">
+                <i class="fa fa-dashboard"></i> <span>Users</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="<?php echo site_url();?>/user/add"><i class="fa fa-circle-o"></i> Add </a></li>
+                <li class="active"><a href="<?php echo site_url();?>/user/user_list"><i class="fa fa-circle-o"></i> List</a></li>
+              </ul>
+            </li>
 			<?php }else{ ?>
 			<li class="treeview">
               <a href="">

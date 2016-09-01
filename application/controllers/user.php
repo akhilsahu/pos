@@ -5,6 +5,7 @@ class User extends CI_Controller{
 		parent::__construct();
 		$this->load->database();
 		$this->load->model('user_model');
+		$this->load->model('organization_model');
 		error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 	}
 
@@ -182,6 +183,7 @@ class User extends CI_Controller{
 		if(isset($user['int_user_id']) && $user['int_user_id']!='')
 		{
 			$data["page"]="add_user";
+			$data["organizations"]=$this->organization_model->get_all_organizations();
 			$this->load->view('page',$data);	
 		}
 		else

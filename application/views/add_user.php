@@ -1,3 +1,10 @@
+<?php
+$org_option='';
+foreach($organizations as $organization)
+{
+	$org_option.='<option value="'.$organization['int_organization_id'].'">'.$organization['txt_name'].'</option>';
+}
+?>
 <div class="content-wrapper">
 
 <div class="row">
@@ -32,23 +39,11 @@
 
                     <div class="form-group">
 
-                      <label class="col-sm-4 control-label" for="inputEmail3">First Name</label>
+                      <label class="col-sm-4 control-label" for="inputEmail3">Name</label>
 
                       <div class="col-sm-8">
 
-                        <input type="text" placeholder="First Name" id="fname" name="fname" value="" class="form-control">
-
-                      </div>
-
-                    </div>
-
-                    <div class="form-group">
-
-                      <label class="col-sm-4 control-label" for="inputEmail3">Last Name</label>
-
-                      <div class="col-sm-8">
-
-                        <input type="text" placeholder="Last Name" value="" id="lname" name="lname" class="form-control">
+                        <input type="text" placeholder="First Name" id="name" name="name" value="" class="form-control">
 
                       </div>
 
@@ -94,11 +89,15 @@
 					
 					<div class="form-group">
 
-                      <label class="col-sm-4 control-label" for="inputPassword3">Profile Image</label>
+                      <label class="col-sm-4 control-label" for="inputPassword3">Organization</label>
 
                       <div class="col-sm-8">
+                        
+						  <select id="organization" name="organization">
+							<option value="0">Select Organization</option>
+							<?php echo $org_option; ?>
+						  </select>
 
-                        <input type="file" id="profile_image" name="profile_image" class="form-control">
                       </div>
 
                     </div>
@@ -139,25 +138,13 @@ $(document).ready(function(){
 
     }
 
-    if($("#fname").val()=="")
+    if($("#name").val()=="")
 
     {
 
-      alert("Please enter first name");
+      alert("Please enter name");
 
-      $("#fname").focus();
-
-      return false;
-
-    }
-
-    if($("#lname").val()=="")
-
-    {
-
-      alert("Please enter last name");
-
-      $("#lname").focus();
+      $("#name").focus();
 
       return false;
 
@@ -194,6 +181,18 @@ $(document).ready(function(){
       alert("Password do not match");
 
       $("#confirm_password").focus();
+
+      return false;
+
+    }
+	
+	if($("#organization").val()=="0")
+
+    {
+
+      alert("Please select organization");
+
+      $("#organization").focus();
 
       return false;
 
