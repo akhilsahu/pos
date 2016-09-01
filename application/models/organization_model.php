@@ -13,9 +13,11 @@ class Organization_model extends CI_Model{
 		return 1;
 	}
 
-	function get_all_bkeepers(){
+	function get_all_organizations()
+	{
+		echo "hello";exit;
 		
-		$sql="select * from tab_book_keepers";
+	echo	$sql="select * from tab_organizations";exit;
 		$query=$this->db->query($sql);
 		$result=$query->result_array();
 		return $result;
