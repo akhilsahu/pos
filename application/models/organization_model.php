@@ -23,9 +23,9 @@ class Organization_model extends CI_Model{
 	}
 	
 
-	function delete_bkeepers($id)
+	function delete_organization($id)
 	{
-		$sql="delete from tab_book_keepers where int_bookkeeper_id=".$id."";
+		$sql="delete from tab_organizations where int_organization_id=".$id."";
 		$query=$this->db->query($sql);
 		return $query;
 	}
