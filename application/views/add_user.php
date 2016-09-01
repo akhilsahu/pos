@@ -89,6 +89,18 @@ foreach($organizations as $organization)
 					
 					<div class="form-group">
 
+                      <label class="col-sm-4 control-label" for="inputPassword3">Cell No</label>
+
+                      <div class="col-sm-8">
+
+                          <input type="email" id="cellno" name="cellno" value="" class="form-control">                        
+
+                      </div>
+
+                    </div>
+					
+					<div class="form-group">
+
                       <label class="col-sm-4 control-label" for="inputPassword3">Organization</label>
 
                       <div class="col-sm-8">
@@ -181,6 +193,30 @@ $(document).ready(function(){
       alert("Password do not match");
 
       $("#confirm_password").focus();
+
+      return false;
+
+    }
+	
+	if($("#email").val()=="")
+
+    {
+
+      alert("Please enter email");
+
+      $("#email").focus();
+
+      return false;
+
+    }
+	
+	if($("#cellno").val()=="")
+
+    {
+
+      alert("Please enter cell number");
+
+      $("#cellno").focus();
 
       return false;
 

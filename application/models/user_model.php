@@ -103,7 +103,7 @@ class User_model extends CI_Model{
 	function save($data)
 	{
 		$password=md5($data['password']);
-		$sql="insert into ".$this->table."(txt_username, txt_password, txt_name, txt_email, int_user_type, int_organization_id, dt_added) values('".$data['username']."','".$password."','".$data['name']."','".$data['email']."','2','".$data['organization']."','".date('Y-m-d')."')";
+		$sql="insert into ".$this->table."(txt_username, txt_password, txt_name, txt_email, int_user_type, int_organization_id, dt_added, txt_cell_no) values('".$data['username']."','".$password."','".$data['name']."','".$data['email']."','2','".$data['organization']."','".date('Y-m-d')."','".$data['cellno']."')";
 		$query=$this->db->query($sql);
 		return $query?1:0;
 	}
