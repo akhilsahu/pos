@@ -15,9 +15,8 @@ class Organization_model extends CI_Model{
 
 	function get_all_organizations()
 	{
-		echo "hello";exit;
 		
-	echo	$sql="select * from tab_organizations";exit;
+		$sql="select * from tab_organizations";
 		$query=$this->db->query($sql);
 		$result=$query->result_array();
 		return $result;

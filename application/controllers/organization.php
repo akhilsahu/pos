@@ -67,7 +67,7 @@ class Organization extends CI_Controller{
 			$data["page"]="organization_list";
 
 			$data["organizations"]=$this->organization_model->get_all_organizations();
-
+			print_r($data);exit;
 			$this->load->view('page',$data);	
 
 		}
