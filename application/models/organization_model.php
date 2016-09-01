@@ -30,7 +30,7 @@ class Organization_model extends CI_Model{
 		return $query;
 	}
 	
-	function get_organization_details()
+	function get_organization_details($id)
 	{
 		$sql="select * from tab_organizations where int_organization_id=".$id."";
 		$query=$this->db->query($sql);
