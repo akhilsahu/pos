@@ -1,7 +1,7 @@
 <?php
 $user=$this->session->userdata('user');
-
-print_r($details);exit;
+print_r($data);
+print_r($details[0]);exit;
 ?>
 <div class="content-wrapper">
 <div class="row">
