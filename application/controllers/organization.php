@@ -108,7 +108,7 @@ class Organization extends CI_Controller{
 			$data1["page"]="edit_organization";
 
 			$data1["details"]=$this->organization_model->get_organization_details($data['id']);
-			print_r($data);exit;
+			print_r($data1);exit;
 			
 			$this->load->view('page',$data1);	
 
