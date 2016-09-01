@@ -103,14 +103,13 @@ class Organization extends CI_Controller{
 		if(isset($user['int_user_id']) && $user['int_user_id']!='')
 
 		{
-			$data=$this->input->get();
+			$data1=$this->input->get();
 
-			$data1["page"]="edit_organization";
+			$data["page"]="edit_organization";
 
-			$data1["details"]=$this->organization_model->get_organization_details($data['id']);
-			print_r($data1);exit;
+			$data["details"]=$this->organization_model->get_organization_details($data1['id']);
 			
-			$this->load->view('page',$data1);	
+			$this->load->view('page',$data);	
 
 		}
 

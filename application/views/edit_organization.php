@@ -1,5 +1,6 @@
 <?php
 $user=$this->session->userdata('user');
+print_r($data);exit;
 print_r($details);exit;
 ?>
 <div class="content-wrapper">
