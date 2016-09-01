@@ -122,5 +122,20 @@ class Organization extends CI_Controller{
 		}
 
 	}
+	
+	function update()
+
+	{
+
+		$data=$this->input->post();
+
+		$user=$this->session->userdata('user');
+
+		$data['user']=$user['int_user_id'];
+		$status=$this->organization_model->update_org($data);
+
+		redirect('organization/organization_list', 'refresh');
+
+	}
 }
 ?>

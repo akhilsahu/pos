@@ -50,7 +50,7 @@ $org=$details[0];
 <script>
 $(document).ready(function(){
   $("#save_organization").click(function(){
-    if($("#org_name").val()==""){alert("Please enter Book keeper Name");$("#org_name").focus();return false;}
+    if($("#org_name").val()==""){alert("Please enter Name");$("#org_name").focus();return false;}
 	if($("#contact").val()==""){alert("Please enter contact number");$("#contact").focus();return false;}
 	if($("#address").val()==""){alert("Please enter address");$("#address").focus();return false;}
 	if($("#zipcode").val()==""){alert("Please enter zipcode");$("#zipcode").focus();return false;}
