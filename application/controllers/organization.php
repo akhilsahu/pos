@@ -110,7 +110,7 @@ class Organization extends CI_Controller{
 			$data1["details"]=$this->organization_model->get_organization_details($data['id']);
 			
 			
-			$this->load->view('page',$data);	
+			$this->load->view('page',$data1);	
 
 		}
 
