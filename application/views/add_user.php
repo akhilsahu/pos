@@ -93,7 +93,7 @@ foreach($organizations as $organization)
 
                       <div class="col-sm-8">
                         
-						  <select id="organization" name="organization">
+						  <select id="organization" name="organization" class="form-control">
 							<option value="0">Select Organization</option>
 							<?php echo $org_option; ?>
 						  </select>
