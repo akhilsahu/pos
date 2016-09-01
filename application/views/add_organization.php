@@ -27,7 +27,7 @@ $user=$this->session->userdata('user');
 					<div class="form-group">
                       <label class="col-sm-4 control-label" for="inputEmail3">Address</label>
                       <div class="col-sm-8">
-						<textarea id="address" name="address"  value="" class="form-control">
+						<textarea id="address" name="address"  value="" class="form-control"></textarea>
                       </div>
                     </div>
 					<div class="form-group">
