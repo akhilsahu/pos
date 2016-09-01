@@ -7,11 +7,11 @@ $complete_structure='';
 foreach($users as $user)
 
 {
-	$role=$user['int_user_type']=='1'?'Admin':'Customer';
+	$role=$user['int_user_type']=='1'?'Admin':'Organization Admin';
 
   $complete_structure.='<tr role="row" class="odd">
 
-                        <td>'.$user['txt_fname'].' '.$user['txt_lname'].'</td>
+                        <td>'.$user['txt_name'].'</td>
 
                         <td>'.$user['txt_username'].'</td>
 
