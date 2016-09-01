@@ -94,5 +94,33 @@ class Organization extends CI_Controller{
 		redirect('organization/organization_list', 'refresh');
 
 	}
+	
+	function edit()
+
+	{
+
+		if(isset($user['int_user_id']) && $user['int_user_id']!='')
+
+		{
+			$data=$this->input->get();
+
+			$data1["page"]="edit_organization";
+
+			$data1["details"]=$this->organization_model->get_organization_details($data['id']);
+			
+			
+			$this->load->view('page',$data);	
+
+		}
+
+		else
+
+		{
+
+			$this->load->view('login');	
+
+		}
+
+	}
 }
 ?>
