@@ -98,6 +98,7 @@ class Organization extends CI_Controller{
 	function edit()
 
 	{
+		$user=$this->session->userdata('user');
 
 		if(isset($user['int_user_id']) && $user['int_user_id']!='')
 
