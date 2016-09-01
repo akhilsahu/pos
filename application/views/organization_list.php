@@ -26,8 +26,9 @@ foreach($organizations as $organization)
                     <thead>
                       <tr role="row">
                         <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Name</th>
-                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Category</th>
-						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Cost</th>
+                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Cell No</th>
+						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Address</th>
+						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Zipcode</th>
 						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Actions</th>
                         </tr>
                     </thead>
