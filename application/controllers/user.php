@@ -235,6 +235,7 @@ class User extends CI_Controller{
 			$data["page"]="edit_user";
 			$data["id"]=$data['id'];
 			$data["details"]=$this->user_model->user_detail($data['id']);
+			$data["organizations"]=$this->organization_model->get_all_organizations();
 			$this->load->view('page',$data);	
 		}
 		else
