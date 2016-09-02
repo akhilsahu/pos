@@ -93,7 +93,7 @@ foreach($organizations as $organization)
 
                       <div class="col-sm-8">
 
-                          <input type="email" id="cellno" name="cellno" value="" class="form-control">                        
+                          <input type="text" id="cellno" name="cellno" value="" class="form-control">                        
 
                       </div>
 
