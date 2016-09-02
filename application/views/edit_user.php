@@ -1,10 +1,8 @@
 <?php
 $user=$details[0];
-print_r($user);
 $org_option='';
 foreach($organizations as $organization)
 {
-	print_r($organization);exit;
 	if($organization['int_organization_id']==$user['int_organization_id'])
 	{
 		$org_option.='<option value="'.$organization['int_organization_id'].'" selected="selected">'.$organization['txt_name'].'</option>';
@@ -65,7 +63,7 @@ foreach($organizations as $organization)
 
                       <div class="col-sm-8">
 
-                          <input type="email" id="email" name="email" value="<?php echo $user['txt_email'] ?>" class="form-control">                        
+                          <input type="email" id="email" name="email" value="<?php echo $user['txt_email'] ?>" class="form-control" disabled="disabled">                        
 
                       </div>
 
