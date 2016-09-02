@@ -1,8 +1,10 @@
 <?php
 $user=$details[0];
+print_r($user);
 $org_option='';
 foreach($organizations as $organization)
 {
+	print_r($organization);exit;
 	if($organization['int_organization_id']==$user['int_organization_id'])
 	{
 		$org_option.='<option value="'.$organization['int_organization_id'].'" selected="selected">'.$organization['txt_name'].'</option>';

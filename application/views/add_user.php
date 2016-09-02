@@ -43,7 +43,7 @@ foreach($organizations as $organization)
 
                       <div class="col-sm-8">
 
-                        <input type="text" placeholder="First Name" id="name" name="name" value="" class="form-control">
+                        <input type="text" placeholder="Name" id="name" name="name" value="" class="form-control">
 
                       </div>
 
