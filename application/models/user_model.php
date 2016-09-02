@@ -134,7 +134,7 @@ class User_model extends CI_Model{
 	function update_indv($data)
 	{
 		
-		$sql="update ".$this->table." set txt_fname='".$data['fname']."', txt_lname='".$data['lname']."', txt_username='".$data['username']."', txt_cell_no='".$data['cellno']."' where int_user_id=".$data['user_id']."";
+		$sql="update ".$this->table." set txt_name='".$data['name']."', txt_username='".$data['username']."', txt_cell_no='".$data['cellno']."' where int_user_id=".$data['user_id']."";
 		$query=$this->db->query($sql);
 		return $query?1:0;
 	}
