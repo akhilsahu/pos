@@ -75,7 +75,7 @@ foreach($organizations as $organization)
 
                       <div class="col-sm-8">
 
-                          <input type="email" id="cellno" name="cellno" value="<?php echo $user['txt_cell_no'] ?>" class="form-control">                        
+                          <input type="text" id="cellno" name="cellno" value="<?php echo $user['txt_cell_no'] ?>" class="form-control">                        
 
                       </div>
 
@@ -139,18 +139,6 @@ $(document).ready(function(){
       alert("Please enter name");
 
       $("#name").focus();
-
-      return false;
-
-    }
-	
-	if($("#email").val()=="")
-
-    {
-
-      alert("Please enter email");
-
-      $("#email").focus();
 
       return false;
 
