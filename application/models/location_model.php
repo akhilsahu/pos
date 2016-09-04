@@ -25,7 +25,7 @@ class Location_model extends CI_Model{
 
 	function delete_location($id)
 	{
-		$sql="delete from tab_locations where int_staff_id=".$id."";
+		$sql="delete from tab_locations where int_location_id=".$id."";
 		$query=$this->db->query($sql);
 		return $query;
 	}
