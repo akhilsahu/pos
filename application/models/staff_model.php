@@ -14,7 +14,7 @@ class Staff_model extends CI_Model{
 		return 1;
 	}
 
-	function get_all_organizations()
+	function get_all_staff()
 	{
 		
 		$sql="select * from tab_staff";
@@ -24,7 +24,7 @@ class Staff_model extends CI_Model{
 	}
 	
 
-	function delete_organization($id)
+	function delete_staff($id)
 	{
 		$sql="delete from tab_staff where int_staff_id=".$id."";
 		$query=$this->db->query($sql);
