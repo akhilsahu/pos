@@ -15,7 +15,7 @@ foreach($locations as $location)
 	}
 	if($location['int_location_id']==$fare['int_destination'])
 	{
-		$destination_option.='<option value="'.$location['int_location_id'].'">'.$location['txt_location'].'</option>';
+		$destination_option.='<option value="'.$location['int_location_id'].'" selected="selected">'.$location['txt_location'].'</option>';
 	}
 	else
 	{
@@ -40,7 +40,7 @@ foreach($locations as $location)
 						<input type="hidden" id="fare_id" name="fare_id" value="<?php echo $fare['int_fare_id']; ?>">
                         <select id="source" name="source" class="form-control" disabled="disabled">
 							<option value="">Select Source</option>
-							<?php echo $location_option;?>
+							<?php echo $source_option;?>
 						</select>
                       </div>
                     </div>
@@ -49,7 +49,7 @@ foreach($locations as $location)
                       <div class="col-sm-8">
                         <select id="destination" name="destination" class="form-control" disabled="disabled">
 							<option value="">Select Destination</option>
-							<?php echo $location_option;?>
+							<?php echo $destination_option;?>
 						</select>
                       </div>
                     </div>
