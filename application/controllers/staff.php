@@ -19,7 +19,7 @@ class Staff extends CI_Controller{
 
 		{
 
-			$data["page"]="add_organization";
+			$data["page"]="add_staff";
 
 			$this->load->view('page',$data);	
 
