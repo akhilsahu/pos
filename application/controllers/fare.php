@@ -22,7 +22,7 @@ class Fare extends CI_Controller{
 
 			$data["page"]="add_fare";
 			
-			$data["locations"]=$this->fare_model->get_all_locations();
+			$data["locations"]=$this->location_model->get_all_locations();
 
 			$this->load->view('page',$data);	
 
@@ -110,7 +110,7 @@ class Fare extends CI_Controller{
 
 			$data["page"]="edit_fare";
 			
-			$data["locations"]=$this->fare_model->get_all_locations();
+			$data["locations"]=$this->location_model->get_all_locations();
 
 			$data["details"]=$this->fare_model->get_fare_details($data1['id']);
 			
