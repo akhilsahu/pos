@@ -67,7 +67,7 @@ class Location extends CI_Controller{
 
 			$data["page"]="location_list";
 
-			$data["staff"]=$this->location_model->get_all_locations();
+			$data["locations"]=$this->location_model->get_all_locations();
 			$this->load->view('page',$data);	
 
 		}
