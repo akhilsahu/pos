@@ -65,9 +65,9 @@ class Staff extends CI_Controller{
 
 		{
 
-			$data["page"]="organization_list";
+			$data["page"]="staff_list";
 
-			$data["organizations"]=$this->organization_model->get_all_organizations();
+			$data["staff"]=$this->staff_model->get_all_staff();
 			$this->load->view('page',$data);	
 
 		}
@@ -90,9 +90,9 @@ class Staff extends CI_Controller{
 
 		$data=$this->input->get();
 
-		$this->organization_model->delete_organization($data['id']);
+		$this->staff_model->delete_staff($data['id']);
 
-		redirect('organization/organization_list', 'refresh');
+		redirect('staff/staff_list', 'refresh');
 
 	}
 	
@@ -106,9 +106,9 @@ class Staff extends CI_Controller{
 		{
 			$data1=$this->input->get();
 
-			$data["page"]="edit_organization";
+			$data["page"]="edit_staff";
 
-			$data["details"]=$this->organization_model->get_organization_details($data1['id']);
+			$data["details"]=$this->staff_model->get_staff_details($data1['id']);
 			
 			$this->load->view('page',$data);	
 
@@ -133,9 +133,9 @@ class Staff extends CI_Controller{
 		$user=$this->session->userdata('user');
 
 		$data['user']=$user['int_user_id'];
-		$status=$this->organization_model->update_org($data);
+		$status=$this->staff_model->update_staff($data);
 
-		redirect('organization/organization_list', 'refresh');
+		redirect('staff/staff_list', 'refresh');
 
 	}
 }
