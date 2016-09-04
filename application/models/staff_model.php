@@ -8,7 +8,7 @@ class Staff_model extends CI_Model{
 
 	function save($data)
 	{
-		$sql_product="insert into tab_organizations values(DEFAULT,'".$data['org_name']."','".$data['contact']."','".$data['address']."','".$data['zipcode']."')";
+		$sql_product="insert into tab_staff values(DEFAULT,'".$data['name']."','".$data['email']."','".$data['password']."','".$data['org_id']."','".$data['role']."','".date("Y-m-d")."')";
 		$query=$this->db->query($sql_product);
 		return 1;
 	}

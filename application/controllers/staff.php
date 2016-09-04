@@ -44,17 +44,18 @@ class Staff extends CI_Controller{
 		$data=$this->input->post();
 
 		$user=$this->session->userdata('user');
-
+		
 		$data['user']=$user['int_user_id'];
-		$status=$this->organization_model->save($data);
+		$data['org_id']=$user['int_organization_id'];
+		$status=$this->staff_model->save($data);
 
-		redirect('organization/organization_list', 'refresh');
+		redirect('staff/staff_list', 'refresh');
 
 	}
 
 	
 
-	function organization_list()
+	function staff_list()
 
 	{
 

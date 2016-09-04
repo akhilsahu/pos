@@ -35,8 +35,8 @@ $user=$this->session->userdata('user');
                       <div class="col-sm-8">
                         <select id="role" name="role" class="form-control">
 							<option value="">Select Role</option>
-							<option value="H">Helper</option>
-							<option value="D">Driver</option>
+							<option value="1">Helper</option>
+							<option value="2">Driver</option>
 						</select>
                       </div>
                     </div>
