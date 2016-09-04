@@ -20,7 +20,7 @@ $user=$this->session->userdata('user');
                     </div>
 				  </div><!-- /.box-body -->
 				  <div class="box-footer">
-                    <button id="save_staff" class="btn btn-info pull-right" type="submit">Save</button>
+                    <button id="save_location" class="btn btn-info pull-right" type="submit">Save</button>
                   </div><!-- /.box-footer -->
                 </form>
               </div>
@@ -30,7 +30,7 @@ $user=$this->session->userdata('user');
 </div>
 <script>
 $(document).ready(function(){
-  $("#save_staff").click(function(){
+  $("#save_location").click(function(){
     if($("#name").val()==""){alert("Please enter location Name");$("#name").focus();return false;}
   });
 });
