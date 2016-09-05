@@ -15,6 +15,7 @@ class Ws extends CI_Controller{
 	function staff_login()
 	{
 		$data=$this->input->post();
+		print_r($data);
 		$response=array();
 		if(isset($data['email']) && isset($data['password']))
 		{
