@@ -41,6 +41,7 @@ class Ws extends CI_Controller{
 	function get_locations()
 	{
 		$locations=$this->location_model->get_all_locations();
+		$response=array();
 		if(count($locations)>0)
 		{
 			$response['details']=$locations;
@@ -51,6 +52,7 @@ class Ws extends CI_Controller{
 			$response['error']="No Locations";
 			$response['code']="202";
 		}
+		echo json_encode($response);
 	}
 
 
