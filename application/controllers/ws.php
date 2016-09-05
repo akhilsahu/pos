@@ -15,7 +15,6 @@ class Ws extends CI_Controller{
 	function staff_login()
 	{
 		$data=$this->input->post();
-		print_r($data);
 		$response=array();
 		if(isset($data['email']) && isset($data['password']))
 		{
@@ -37,6 +36,21 @@ class Ws extends CI_Controller{
 			$response['code']="501";
 		}
 		echo json_encode($response);
+	}
+	
+	function get_locations()
+	{
+		$locations=$this->location_model->get_all_locations();
+		if(count($locations)>0)
+		{
+			$response['details']=$locations;
+			$response['code']="200";
+		}
+		else
+		{
+			$response['error']="No Locations";
+			$response['code']="202";
+		}
 	}
 
 
