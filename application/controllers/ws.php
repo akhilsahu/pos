@@ -54,6 +54,32 @@ class Ws extends CI_Controller{
 		}
 		echo json_encode($response);
 	}
+	
+	function get_fare()
+	{
+		$data=$this->input->post();
+		$response=array();
+		if(isset($data['source']) && isset($data['destination']) && isset($data['quantity']))
+		{
+			$total=$this->fare_model->calculate($data);
+			if($total!='0')
+			{
+				$response['fare']=$total;
+				$response['code']="200";
+			}
+			else
+			{
+				$response['error']="Error Occured";
+				$response['code']="202";
+			}
+		}
+		else
+		{
+			$response['error']="Invalid Input";
+			$response['code']="501";
+		}
+		echo json_encode($response);
+	}
 
 
 

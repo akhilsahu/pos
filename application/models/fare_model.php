@@ -22,6 +22,23 @@ class Fare_model extends CI_Model{
 		return $result;
 	}
 	
+	function calculate($data)
+	{
+		$sql="select * from tab_fare where int_source='".$data['source']."' and int_destination='".$data['destination']."'";
+		$query=$this->db->query($sql);
+		$result=$query->result_array();
+		$fare_amt=$result[0]['float_fare'];
+		if($fare_amt!='' || $fare_amt!='0')
+		{
+			$total=$fare_amt*$data['quantity'];
+		}
+		else
+		{
+			$total=0;
+		}
+		return $total;
+	}
+	
 
 	function delete_fare($id)
 	{
