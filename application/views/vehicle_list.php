@@ -9,8 +9,8 @@ foreach($vehicles as $vehicle)
 						<td>'.$vehicle['txt_manufacturer'].'</td>
 						<td>'.$vehicle['txt_license_plate'].'</td>
                         <td>
-                            <a class="del_confirm" href="'.site_url().'/staff/edit?id='.$vehicle['int_vehicle_id'].'">Edit</a>&nbsp;&nbsp;
-							<a class="del_confirm" href="'.site_url().'/staff/delete?id='.$vehicle['int_vehicle_id'].'">Delete</a>
+                            <a class="del_confirm" href="'.site_url().'/vehicle/edit?id='.$vehicle['int_vehicle_id'].'">Edit</a>&nbsp;&nbsp;
+							<a class="del_confirm" href="'.site_url().'/vehicle/delete?id='.$vehicle['int_vehicle_id'].'">Delete</a>
                         </td>
                       </tr>';
 }
