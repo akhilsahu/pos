@@ -22,6 +22,14 @@ class Location_model extends CI_Model{
 		return $result;
 	}
 	
+	function get_org_locations($org_id)
+	{
+		$sql="select * from tab_locations where int_organization_id='".$org_id."'";
+		$query=$this->db->query($sql);
+		$result=$query->result_array();
+		return $result;
+	}
+	
 
 	function delete_location($id)
 	{
