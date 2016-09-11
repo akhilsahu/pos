@@ -98,7 +98,7 @@ class Fare extends CI_Controller{
 			if(isset($data['org_id']))
 			{
 				$data1["page"]="fare_list_admin";
-				$data["fares"]=$this->fare_model->get_org_fares($data['org_id']);
+				$data1["fares"]=$this->fare_model->get_org_fares($data['org_id']);
 				$data1["organizations"]=$this->organization_model->get_all_organizations();
 				$data1["org_id"]=$data['org_id'];
 			}
