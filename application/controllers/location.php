@@ -108,7 +108,7 @@ class Location extends CI_Controller{
 			$data["page"]="location_list_admin";
 
 			$data["locations"]=$this->location_model->get_all_locations();
-			$this->load->view('page',$data);	
+			$this->load->view('page',$data1);	
 
 		}
 
