@@ -58,6 +58,14 @@ $user=$this->session->userdata('user');
             </li>
 			<li class="treeview">
               <a href="">
+                <i class="fa fa-dashboard"></i> <span>Vehicle</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li class="active"><a href="<?php echo site_url();?>/vehicle/vehicle_list_admin"><i class="fa fa-circle-o"></i> View</a></li>
+              </ul>
+            </li>
+			<li class="treeview">
+              <a href="">
                 <i class="fa fa-dashboard"></i> <span>Transactions</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
@@ -99,6 +107,15 @@ $user=$this->session->userdata('user');
               <ul class="treeview-menu">
 				<li><a href="<?php echo site_url();?>/fare/add"><i class="fa fa-circle-o"></i> Add </a></li>
                 <li class="active"><a href="<?php echo site_url();?>/fare/fare_list"><i class="fa fa-circle-o"></i> View</a></li>
+              </ul>
+            </li>
+			<li class="treeview">
+              <a href="">
+                <i class="fa fa-dashboard"></i> <span>Vehicle</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+				<li><a href="<?php echo site_url();?>/vehicle/add"><i class="fa fa-circle-o"></i> Add </a></li>
+                <li class="active"><a href="<?php echo site_url();?>/vehicle/vehicle_list"><i class="fa fa-circle-o"></i> View</a></li>
               </ul>
             </li>
 			<li class="treeview">
