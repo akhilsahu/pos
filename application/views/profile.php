@@ -38,6 +38,7 @@ $user=$this->session->userdata('user');
                     </div>
                   </div><!-- /.box-body -->
                   <div class="box-footer">
+					<input type="hidden" id="user_id" name="user_id" value="<?php echo $user['int_user_id']; ?>">
                     <button id="save_profile" class="btn btn-info pull-right" type="submit">Update Profile</button>
                   </div><!-- /.box-footer -->
                 </form>
