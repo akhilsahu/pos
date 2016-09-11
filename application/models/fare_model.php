@@ -25,7 +25,7 @@ class Fare_model extends CI_Model{
 	function get_org_fares($org_id)
 	{
 		
-		$sql="select a.int_fare_id, a.float_fare as fare,b.txt_location as source,c.txt_location as destination from tab_fare as a join tab_locations as b ON a.int_source=b.int_location_id join tab_locations as c ON a.int_destination=c.int_location_id where b.int_organization_id='".$org_id."'";
+	echo	$sql="select a.int_fare_id, a.float_fare as fare,b.txt_location as source,c.txt_location as destination from tab_fare as a join tab_locations as b ON a.int_source=b.int_location_id join tab_locations as c ON a.int_destination=c.int_location_id where b.int_organization_id='".$org_id."'";exit;
 		$query=$this->db->query($sql);
 		$result=$query->result_array();
 		return $result;
