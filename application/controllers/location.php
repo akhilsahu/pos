@@ -87,15 +87,13 @@ class Location extends CI_Controller{
 	{
 		$user=$this->session->userdata('user');
 		$data=$this->input->post();
-		print_r($data);
-
 		if(isset($user['int_user_id']) && $user['int_user_id']!='')
 
 		{
 			if(isset($data['org_id']))
 			{
 				$data1["page"]="location_list_admin";
-				$data["locations"]=$this->location_model->get_org_locations($data['org_id']);
+				$data1["locations"]=$this->location_model->get_org_locations($data['org_id']);
 				$data1["organizations"]=$this->organization_model->get_all_organizations();
 				$data1["org_id"]=$data['org_id'];
 			}
@@ -107,10 +105,6 @@ class Location extends CI_Controller{
 				$data1["org_id"]=NULL;
 			}
 
-			//$data["page"]="location_list_admin";
-
-			//$data["locations"]=$this->location_model->get_all_locations();
-			print_r($data1);exit;
 			$this->load->view('page',$data1);	
 
 		}

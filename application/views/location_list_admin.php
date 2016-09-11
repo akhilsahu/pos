@@ -1,5 +1,6 @@
 <?php
 $complete_structure='';
+$org_selected=isset($org_id)?$org_id:'';
 if(count($locations)>0)
 {
 	foreach($locations as $location)
