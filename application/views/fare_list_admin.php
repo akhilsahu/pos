@@ -9,10 +9,6 @@ if(count($fares)>0)
 							<td>'.$fare['source'].'</td>
 							<td>'.$fare['destination'].'</td>
 							<td>'.$fare['fare'].'</td>
-							<td><a href="'.site_url().'/fare/edit?id='.$fare['int_fare_id'].'">Edit</a>
-								&nbsp;&nbsp;&nbsp;
-								<a class="del_confirm" href="'.site_url().'/fare/delete?id='.$fare['int_fare_id'].'">Delete</a>
-							</td>
 						  </tr>';
 	}
 }
@@ -60,7 +56,6 @@ if(count($organizations)>0)
                         <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Source</th>
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Destination</th>
 						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Fare</th>
-						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Actions</th>
                         </tr>
                     </thead>
                     <tbody>

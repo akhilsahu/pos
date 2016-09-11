@@ -7,9 +7,6 @@ if(count($locations)>0)
 	{
 	  $complete_structure.='<tr role="row" class="odd">
 							<td>'.$location['txt_location'].'</td>
-							<td>
-								<a class="del_confirm" href="'.site_url().'/location/delete?id='.$location['int_location_id'].'">Delete</a>
-							</td>
 						  </tr>';
 	}
 }
@@ -56,7 +53,6 @@ if(count($organizations)>0)
                     <thead>
                       <tr role="row">
                         <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Name</th>
-						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
