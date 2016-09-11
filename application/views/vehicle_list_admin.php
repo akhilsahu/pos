@@ -6,10 +6,10 @@ if(count($vehicles)>0)
 	foreach($vehicles as $vehicle)
 	{
 	  $complete_structure.='<tr role="row" class="odd">
-							<td>'.$vehicles['int_year'].'</td>
-							<td>'.$member['txt_model'].'</td>
-							<td>'.$member['txt_manufacturer'].'</td>
-							<td>'.$member['txt_license_plate'].'</td>
+							<td>'.$vehicle['int_year'].'</td>
+							<td>'.$vehicle['txt_model'].'</td>
+							<td>'.$vehicle['txt_manufacturer'].'</td>
+							<td>'.$vehicle['txt_license_plate'].'</td>
 						  </tr>';
 	}
 }
