@@ -70,7 +70,7 @@ class Fare extends CI_Controller{
 
 			$data["page"]="fare_list";
 
-			$data["fares"]=$this->fare_model->get_all_fares();
+			$data["fares"]=$this->fare_model->get_org_fares($user['int_organization_id']);
 			$this->load->view('page',$data);	
 
 		}
