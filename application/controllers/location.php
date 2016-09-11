@@ -87,6 +87,7 @@ class Location extends CI_Controller{
 	{
 		$user=$this->session->userdata('user');
 		$data=$this->input->post();
+		print_r($data);
 
 		if(isset($user['int_user_id']) && $user['int_user_id']!='')
 
@@ -109,6 +110,7 @@ class Location extends CI_Controller{
 			//$data["page"]="location_list_admin";
 
 			//$data["locations"]=$this->location_model->get_all_locations();
+			print_r($data1);exit;
 			$this->load->view('page',$data1);	
 
 		}
