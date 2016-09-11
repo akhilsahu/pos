@@ -1,7 +1,7 @@
 <?php
 $complete_structure='';
 $org_selected=isset($org_id)?$org_id:'';
-if(count($fare)>0)
+if(count($fares)>0)
 {
 	foreach($fares as $fare)
 	{
