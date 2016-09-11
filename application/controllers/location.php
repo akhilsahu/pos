@@ -86,6 +86,7 @@ class Location extends CI_Controller{
 	function location_list_admin()
 	{
 		$user=$this->session->userdata('user');
+		$data=$this->input->post();
 
 		if(isset($user['int_user_id']) && $user['int_user_id']!='')
 
