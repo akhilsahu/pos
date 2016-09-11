@@ -39,8 +39,8 @@ if(count($organizations)>0)
 				<form method="post" action="" enctype="multipart/form-data">
                     <div class="box-body">
 					<div class="form-group">
-                      <label class="col-sm-4 control-label" for="inputEmail3">Organization</label>
-                      <div class="col-sm-8">
+                      <label class="col-sm-2 control-label" for="inputEmail3">Organization</label>
+                      <div class="col-sm-6">
                         <select id="org_id" name="org_id" class="form-control">
 							<option value="">Select Organization</option>
 							<?php echo $option_html; ?>
