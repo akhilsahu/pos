@@ -4,13 +4,13 @@ $complete_structure='';
 foreach($vehicles as $vehicle)
 {
   $complete_structure.='<tr role="row" class="odd">
-                        <td>'.$vehicles['int_year'].'</td>
-                        <td>'.$member['txt_model'].'</td>
-						<td>'.$member['txt_manufacturer'].'</td>
-						<td>'.$member['txt_license_plate'].'</td>
+                        <td>'.$vehicle['int_year'].'</td>
+                        <td>'.$vehicle['txt_model'].'</td>
+						<td>'.$vehicle['txt_manufacturer'].'</td>
+						<td>'.$vehicle['txt_license_plate'].'</td>
                         <td>
-                            <a class="del_confirm" href="'.site_url().'/staff/edit?id='.$member['int_staff_id'].'">Edit</a>&nbsp;&nbsp;
-							<a class="del_confirm" href="'.site_url().'/staff/delete?id='.$member['int_staff_id'].'">Delete</a>
+                            <a class="del_confirm" href="'.site_url().'/staff/edit?id='.$vehicle['int_vehicle_id'].'">Edit</a>&nbsp;&nbsp;
+							<a class="del_confirm" href="'.site_url().'/staff/delete?id='.$vehicle['int_vehicle_id'].'">Delete</a>
                         </td>
                       </tr>';
 }

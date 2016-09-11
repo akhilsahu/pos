@@ -106,7 +106,7 @@ class Vehicle extends CI_Controller{
 				$data1["organizations"]=$this->organization_model->get_all_organizations();
 				$data1["org_id"]=NULL;
 			}
-				
+			
 			$this->load->view('page',$data1);
 		}
 
