@@ -41,16 +41,16 @@ if(count($organizations)>0)
 					<div class="form-group">
                       <label class="col-sm-4 control-label" for="inputEmail3">Organization</label>
                       <div class="col-sm-8">
-                        <select id="org_id" name="org_id">
+                        <select id="org_id" name="org_id" class="form-control">
 							<option value="">Select Organization</option>
 							<?php echo $option_html; ?>
 						</select>
                       </div>
+					  <div class="col-sm-4">
+                        <button id="search_staff" class="btn btn-info pull-right" type="submit">Search</button>
+                      </div>
                     </div>
-				  </div><!-- /.box-body -->
-				  <div class="box-footer">
-                    <button id="search_staff" class="btn btn-info pull-right" type="submit">Save</button>
-                  </div><!-- /.box-footer -->
+				  </div>
                 </form>
                 <div class="box-body">
                   <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap"><div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row"><div class="col-sm-12"><table class="table table-bordered table-hover dataTable" id="example2" role="grid" aria-describedby="example2_info">
