@@ -68,7 +68,7 @@ class Staff extends CI_Controller{
 
 			$data["page"]="staff_list";
 
-			$data["staff"]=$this->staff_model->get_all_staff();
+			$data["staff"]=$this->staff_model->get_org_staff($user['int_organization_id']);
 			$this->load->view('page',$data);	
 
 		}
