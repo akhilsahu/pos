@@ -25,8 +25,15 @@ class Staff_model extends CI_Model{
 
 	function get_all_staff()
 	{
-		
 		$sql="select * from tab_staff";
+		$query=$this->db->query($sql);
+		$result=$query->result_array();
+		return $result;
+	}
+	
+	function get_org_staff($org_id)
+	{
+		$sql="select * from tab_staff where int_organization_id='".$org_id."'";
 		$query=$this->db->query($sql);
 		$result=$query->result_array();
 		return $result;

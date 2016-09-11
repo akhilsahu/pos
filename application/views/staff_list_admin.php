@@ -1,18 +1,34 @@
 <?php
 $complete_structure='';
-
-foreach($staff as $member)
+$org_selected=isset($org_id)?$org_id:'';
+if(count($staff)>0)
 {
-  $role=$member['int_role']=='1'?'Helper':'Driver';
-  $complete_structure.='<tr role="row" class="odd">
-                        <td>'.$member['txt_name'].'</td>
-                        <td>'.$member['txt_email'].'</td>
-						<td>'.$role.'</td>
-                        <td>
-                            <a class="del_confirm" href="'.site_url().'/staff/delete?id='.$member['int_staff_id'].'">Delete</a>
-                        </td>
-                      </tr>';
+	foreach($staff as $member)
+	{
+	  $role=$member['int_role']=='1'?'Helper':'Driver';
+	  $complete_structure.='<tr role="row" class="odd">
+							<td>'.$member['txt_name'].'</td>
+							<td>'.$member['txt_email'].'</td>
+							<td>'.$role.'</td>
+						  </tr>';
+	}
 }
+$option_html='';
+if(count($organizations)>0)
+{
+	foreach($organizations as $organization)
+	{
+		if($organization['int_organization_id']==$org_selected)
+		{
+			$option_html.='<option value="'.$organization['int_organization_id'].'" selected="selected">'.$organization['txt_name'].'</option>';
+		}
+		else
+		{
+			$option_html.='<option value="'.$organization['int_organization_id'].'">'.$organization['txt_name'].'</option>';
+		}
+	}
+}
+
 ?>
 <div class="content-wrapper">
   <div class="row">
@@ -20,17 +36,20 @@ foreach($staff as $member)
                 <div class="box-header">
                   <h3 class="box-title">Staff List</h3>
                 </div><!-- /.box-header -->
-				<form method="post" action="<?php echo site_url();?>/staff/search_staff" enctype="multipart/form-data">
+				<form method="post" action="" enctype="multipart/form-data">
                     <div class="box-body">
 					<div class="form-group">
                       <label class="col-sm-4 control-label" for="inputEmail3">Organization</label>
                       <div class="col-sm-8">
-                        <input type="text" placeholder="Name" id="name" name="name" value="" class="form-control">
+                        <select id="org_id" name="org_id">
+							<option value="">Select Organization</option>
+							<?php echo $option_html; ?>
+						</select>
                       </div>
                     </div>
 				  </div><!-- /.box-body -->
 				  <div class="box-footer">
-                    <button id="save_staff" class="btn btn-info pull-right" type="submit">Save</button>
+                    <button id="search_staff" class="btn btn-info pull-right" type="submit">Save</button>
                   </div><!-- /.box-footer -->
                 </form>
                 <div class="box-body">
@@ -40,7 +59,6 @@ foreach($staff as $member)
                         <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Name</th>
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">E-Mail</th>
 						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Role</th>
-						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,6 +82,9 @@ $(document).ready(function(){
     {
       return false;
     }
+  });
+  $("#search_staff").click(function(){
+    if($("#org_id").val()==""){alert("Please select Organization");$("#org_id").focus();return false;}
   });
 });
 </script>

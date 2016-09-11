@@ -5,6 +5,7 @@ class Staff extends CI_Controller{
 		parent::__construct();
 		$this->load->database();
 		$this->load->model('staff_model');
+		$this->load->model('organization_model');
 		error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 		header('Access-Control-Allow-Origin: *');
 	}
@@ -80,6 +81,42 @@ class Staff extends CI_Controller{
 
 		}	
 
+	}
+	
+	function staff_list_admin()
+	{
+		$user=$this->session->userdata('user');
+		$data=$this->input->post();
+
+		if(isset($user['int_user_id']) && $user['int_user_id']!='')
+
+		{
+			if(isset($data['org_id']))
+			{
+				$data1["page"]="staff_list_admin";
+				$data1["staff"]=$this->staff_model->get_org_staff($data['org_id']);
+				$data1["organizations"]=$this->organization_model->get_all_organizations();
+				$data1["org_id"]=$data['org_id'];
+			}
+			else
+			{
+				$data1["page"]="staff_list_admin";
+				$data1["staff"]=array();
+				$data1["organizations"]=$this->organization_model->get_all_organizations();
+				$data1["org_id"]=NULL;
+			}
+				
+			$this->load->view('page',$data1);	
+
+		}
+
+		else
+
+		{
+
+			$this->load->view('login');	
+
+		}
 	}
 
 
