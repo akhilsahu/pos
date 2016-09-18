@@ -33,6 +33,7 @@ if(count($vehicles_assign)>0)
 }
 if(count($vehicles_search)>0)
 {
+	print_r($vehicles_search);
 	foreach($vehicles_search as $v_search)
 	{
 		if($v_search['int_vehicle_id']==$v_selected)
@@ -89,7 +90,7 @@ if(count($vehicles_search)>0)
 						</select>
                       </div>
 					  <div class="col-sm-4">
-                        <button id="search_location" class="btn btn-info pull-right" type="submit">Assign</button>
+                        <button id="search" class="btn btn-info pull-right" type="submit">Search</button>
                       </div>
                     </div>
 				  </div>
@@ -129,7 +130,7 @@ $(document).ready(function(){
     if($("#vehicle_assign").val()==""){alert("Please select Vehicle");$("#vehicle_assign").focus();return false;}
 	if($("#staff_assign").val()==""){alert("Please select Staff Member");$("#staff_assign").focus();return false;}
   });
-  $("#assign_vehicle").click(function(){
+  $("#search").click(function(){
     if($("#search_vehicle").val()==""){alert("Please select Vehicle");$("#search_vehicle").focus();return false;}
   });
 });
