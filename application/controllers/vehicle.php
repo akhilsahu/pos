@@ -3,7 +3,6 @@ class Vehicle extends CI_Controller{
 
 	function Vehicle(){
 		parent::__construct();
-		echo "con";exit;
 		$this->load->database();
 		$this->load->model('vehicle_model');
 		$this->load->model('organization_model');
@@ -121,7 +120,7 @@ class Vehicle extends CI_Controller{
 
 	}
 	
-	function assignment()
+	/*function assignment()
 	{
 		echo "hello";exit;
 		$data=$this->input->post();
@@ -158,7 +157,7 @@ class Vehicle extends CI_Controller{
 	`	{
 			$this->load->view('login');	
 		}
-	}
+	}*/
 
 	function delete()
 
