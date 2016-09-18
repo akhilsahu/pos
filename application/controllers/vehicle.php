@@ -147,7 +147,7 @@ class Vehicle extends CI_Controller{
 				$data1["search_vehicle"]='';
 				$data1['search_data']=array();
 			}
-			
+			echo "hello";exit;
 			$data1["vehicles_assign"]=$this->vehicle_model->get_unassigned_vehicle($user['int_organization_id']);
 			$data1["vehicles_search"]=$this->vehicle_model->get_org_vehicle($user['int_organization_id']);
 			$data1["members"]=$this->staff_model->get_unassigned_staff($user['int_organization_id']);
