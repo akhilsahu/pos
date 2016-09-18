@@ -21,10 +21,18 @@ class Staff_model extends CI_Model{
 		$query=$this->db->query($sql);
 		$result=$query->result_array();
 		$id=$result[0]['int_staff_id'];
+		$details=$result[0];
 		$sql_assign="select * from tab_vehicle_assignment where int_staff_id=".$id."";
 		$query_assign=$this->db->query($sql_assign);
 		$result_assign=$query_assign->result_array();
-		print_r($result_assign);exit;
+		if(count($result_assign)>0)
+		{
+			$details['vehicle']=$result_assign[0]['int_vehicle_id'];
+		}
+		else
+		{
+			$details['vehicle']=0;
+		}
 		return $result;
 	}
 
