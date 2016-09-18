@@ -122,12 +122,11 @@ class Vehicle extends CI_Controller{
 	
 	function assignment()
 	{
-		echo "hello";
 		$user=$this->session->userdata('user');
 		$data=$this->input->post();
 		if(isset($user['int_user_id']) && $user['int_user_id']!='')
 		{
-			/*if(isset($data['operation']))
+			if(isset($data['operation']))
 			{
 				if($data['operation']=='assign')
 				{
@@ -152,7 +151,7 @@ class Vehicle extends CI_Controller{
 			$data1["members"]=$this->staff_model->get_unassigned_staff($user['int_organization_id']);
 			$data1["page"]="assign_vehicle";
 			
-			$this->load->view('page',$data1);*/
+			$this->load->view('page',$data1);
 		}
 		else
 
