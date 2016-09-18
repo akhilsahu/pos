@@ -20,6 +20,11 @@ class Staff_model extends CI_Model{
 		$sql="select * from tab_staff where txt_email='".$data['email']."' and txt_password='".$password."'";
 		$query=$this->db->query($sql);
 		$result=$query->result_array();
+		$id=$result[0]['int_staff_id'];
+		$sql_assign="select * from tab_vehicle_assignment where int_staff_id=".$id."";
+		$query_assign=$this->db->query($sql_assign);
+		$result_assign=$query_assign->result_array();
+		print_r($result_assign);exit;
 		return $result;
 	}
 
