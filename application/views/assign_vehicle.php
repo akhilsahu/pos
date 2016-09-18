@@ -33,16 +33,15 @@ if(count($vehicles_assign)>0)
 }
 if(count($vehicles_search)>0)
 {
-	print_r($vehicles_search);
 	foreach($vehicles_search as $v_search)
 	{
 		if($v_search['int_vehicle_id']==$v_selected)
 		{
-			$vsearch_option_html.='<option value="'.$member['int_vehicle_id'].'" selected="selected">'.$member['txt_name'].'</option>';
+			$vsearch_option_html.='<option value="'.$v_search['int_vehicle_id'].'" selected="selected">'.$v_search['txt_license_plate'].'</option>';
 		}
 		else
 		{
-			$vsearch_option_html.='<option value="'.$member['int_vehicle_id'].'">'.$member['txt_name'].'</option>';
+			$vsearch_option_html.='<option value="'.$v_search['int_vehicle_id'].'">'.$v_search['txt_license_plate'].'</option>';
 		}
 		
 	}
