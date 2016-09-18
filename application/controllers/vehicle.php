@@ -124,6 +124,17 @@ class Vehicle extends CI_Controller{
 	{
 		$user=$this->session->userdata('user');
 		$data=$this->input->post();
+		if(isset($user['int_user_id']) && $user['int_user_id']!='')
+		{
+			
+		}
+		else
+
+		{
+
+			$this->load->view('login');	
+
+		}
 		/*if(isset($user['int_user_id']) && $user['int_user_id']!='')
 		{
 			if(isset($data['operation']))
