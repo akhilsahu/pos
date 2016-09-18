@@ -3,13 +3,14 @@ class Vehicle extends CI_Controller{
 
 	function Vehicle(){
 		parent::__construct();
+		echo "con";exit;
 		$this->load->database();
 		$this->load->model('vehicle_model');
 		$this->load->model('organization_model');
 		$this->load->model('staff_model');
 		error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 		header('Access-Control-Allow-Origin: *');
-		echo "con";exit;
+		
 	}
 
 	function add()
