@@ -9,6 +9,7 @@ class Vehicle extends CI_Controller{
 		$this->load->model('staff_model');
 		error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 		header('Access-Control-Allow-Origin: *');
+		echo "con";exit;
 	}
 
 	function add()
@@ -91,7 +92,6 @@ class Vehicle extends CI_Controller{
 		$user=$this->session->userdata('user');
 		$data=$this->input->post();
 		if(isset($user['int_user_id']) && $user['int_user_id']!='')
-
 		{
 			if(isset($data['org_id']))
 			{
@@ -110,7 +110,6 @@ class Vehicle extends CI_Controller{
 			
 			$this->load->view('page',$data1);
 		}
-
 		else
 
 		{
@@ -126,7 +125,6 @@ class Vehicle extends CI_Controller{
 		echo "hello";exit;
 		$data=$this->input->post();
 		if(isset($user['int_user_id']) && $user['int_user_id']!='')
-
 		{
 			if(isset($data['operation']))
 			{
@@ -148,7 +146,6 @@ class Vehicle extends CI_Controller{
 				$data1["search_vehicle"]='';
 				$data1['search_data']=array();
 			}
-			echo "hello";exit;
 			$data1["vehicles_assign"]=$this->vehicle_model->get_unassigned_vehicle($user['int_organization_id']);
 			$data1["vehicles_search"]=$this->vehicle_model->get_org_vehicle($user['int_organization_id']);
 			$data1["members"]=$this->staff_model->get_unassigned_staff($user['int_organization_id']);
@@ -161,8 +158,6 @@ class Vehicle extends CI_Controller{
 			$this->load->view('login');	
 		}
 	}
-
-
 
 	function delete()
 
