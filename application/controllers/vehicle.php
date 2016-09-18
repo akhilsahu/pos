@@ -121,7 +121,7 @@ class Vehicle extends CI_Controller{
 
 	}
 	
-	function assign()
+	function assignment()
 	{
 		echo "hello";exit;
 		$data=$this->input->post();

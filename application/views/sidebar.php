@@ -116,7 +116,7 @@ $user=$this->session->userdata('user');
               <ul class="treeview-menu">
 				<li><a href="<?php echo site_url();?>/vehicle/add"><i class="fa fa-circle-o"></i> Add </a></li>
                 <li class="active"><a href="<?php echo site_url();?>/vehicle/vehicle_list"><i class="fa fa-circle-o"></i> View</a></li>
-				<li class="active"><a href="<?php echo site_url();?>/vehicle/assign"><i class="fa fa-circle-o"></i> Assign</a></li>
+				<li class="active"><a href="<?php echo site_url();?>/vehicle/assignment"><i class="fa fa-circle-o"></i> Assign</a></li>
               </ul>
             </li>
 			<li class="treeview">
