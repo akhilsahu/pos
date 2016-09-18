@@ -122,6 +122,7 @@ class Vehicle extends CI_Controller{
 	
 	function assignment()
 	{
+		echo "hello";
 		$user=$this->session->userdata('user');
 		$data=$this->input->post();
 		if(isset($user['int_user_id']) && $user['int_user_id']!='')
