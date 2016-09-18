@@ -33,7 +33,7 @@ class Staff_model extends CI_Model{
 		{
 			$details['vehicle']=0;
 		}
-		return $result;
+		return $details;
 	}
 
 	function get_all_staff()
