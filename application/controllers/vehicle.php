@@ -123,6 +123,7 @@ class Vehicle extends CI_Controller{
 	
 	function assign()
 	{
+		echo "hello";exit;
 		$data=$this->input->post();
 		if(isset($user['int_user_id']) && $user['int_user_id']!='')
 
