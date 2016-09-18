@@ -170,7 +170,7 @@ class Vehicle extends CI_Controller{
 
 		$this->vehicle_model->delete_assignment($data['id']);
 
-		redirect('vehicle/assignment', 'refresh');
+		redirect('vehicle/vehicle_list', 'refresh');
 
 	}
 	
@@ -180,7 +180,7 @@ class Vehicle extends CI_Controller{
 
 		$this->vehicle_model->delete_vehicle($data['id']);
 
-		redirect('vehicle/vehicle_list', 'refresh');
+		redirect('vehicle/assignment', 'refresh');
 	}
 	
 	function edit()
