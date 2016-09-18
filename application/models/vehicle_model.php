@@ -22,9 +22,32 @@ class Vehicle_model extends CI_Model{
 		return $result;
 	}
 	
+	function get_unassigned_vehicle($org_id)
+	{
+		$sql="select a.* from tab_vehicle as a left join tab_vehicle_assignment as b ON a.int_vehicle_id=b.int_vehicle_id where a.int_organization_id='".$org_id."' and b.int_vehicle_id is null";
+		$query=$this->db->query($sql);
+		$result=$query->result_array();
+		return $result;
+	}
+	
 	function get_org_vehicle($org_id)
 	{
 		$sql="select * from tab_vehicle where int_organization_id='".$org_id."'";
+		$query=$this->db->query($sql);
+		$result=$query->result_array();
+		return $result;
+	}
+	
+	function assign_vehicle($data)
+	{
+		$sql_product="insert into tab_vehicle_assignment values(DEFAULT,'".$data['staff_assign']."','".$data['vehicle_assign']."','".$data['user_id']."','".date('Y-m-d')."')";
+		$query=$this->db->query($sql_product);
+		return 1;
+	}
+	
+	function get_vehicle_member($data)
+	{
+		$sql="select a.txt_name,b.dt_assign,b.int_assignment_id from tab_staff as a right join tab_vehicle_assignment as b ON a.int_staff_id=b.int_staff_id where b.int_vehicle_id='".$data['search_vehicle']."'";
 		$query=$this->db->query($sql);
 		$result=$query->result_array();
 		return $result;

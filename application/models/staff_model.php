@@ -31,6 +31,14 @@ class Staff_model extends CI_Model{
 		return $result;
 	}
 	
+	function get_unassigned_staff($org_id)
+	{
+		$sql="select a.* from tab_staff as a left join tab_vehicle_assignment as b ON a.int_staff_id=b.int_staff_id where a.int_organization_id='".$org_id."'  and b.int_staff_id is null";
+		$query=$this->db->query($sql);
+		$result=$query->result_array();
+		return $result;
+	}
+	
 	function get_org_staff($org_id)
 	{
 		$sql="select * from tab_staff where int_organization_id='".$org_id."'";

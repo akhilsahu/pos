@@ -6,6 +6,7 @@ class Vehicle extends CI_Controller{
 		$this->load->database();
 		$this->load->model('vehicle_model');
 		$this->load->model('organization_model');
+		$this->load->model('staff_model');
 		error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 		header('Access-Control-Allow-Origin: *');
 	}
@@ -118,6 +119,46 @@ class Vehicle extends CI_Controller{
 
 		}	
 
+	}
+	
+	function assign()
+	{
+		$data=$this->input->post();
+		if(isset($user['int_user_id']) && $user['int_user_id']!='')
+
+		{
+			if(isset($data['operation']))
+			{
+				if($data['operation']=='assign')
+				{
+					$data['user_id']=$user['int_user_id'];
+					$result=$this->vehicle_model->assign_vehicle($data);
+					$data1["search_vehicle"]='';
+					$data1['search_data']=array();
+				}
+				else
+				{
+					$data1['search_data']=$this->vehicle_model->get_vehicle_member($data);
+					$data1["search_vehicle"]=$data['search_vehicle'];
+				}
+			}
+			else
+			{
+				$data1["search_vehicle"]='';
+				$data1['search_data']=array();
+			}
+			
+			$data1["vehicles_assign"]=$this->vehicle_model->get_unassigned_vehicle($user['int_organization_id']);
+			$data1["vehicles_search"]=$this->vehicle_model->get_org_vehicle($user['int_organization_id']);
+			$data1["members"]=$this->staff_model->get_unassigned_staff($user['int_organization_id']);
+			$data1["page"]="assign_vehicle";
+			
+			$this->load->view('page',$data1);
+		}
+		else
+	`	{
+			$this->load->view('login');	
+		}
 	}
 
 
