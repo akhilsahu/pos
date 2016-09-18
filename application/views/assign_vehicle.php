@@ -12,7 +12,7 @@ if(count($search_data)>0)
 								<td>'.$result['txt_name'].'</td>
 								<td>'.$result['dt_assign'].'</td>
 								<td>
-									<a class="unassign_confirm" href="'.site_url().'/vehicle/unassign?id='.$result['int_assignment_id'].'">Edit</a>
+									<a class="unassign_confirm" href="'.site_url().'/vehicle/unassign?id='.$result['int_assignment_id'].'">Unassign</a>
 								</td>
 							</tr>';
 	}

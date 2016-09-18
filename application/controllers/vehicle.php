@@ -168,10 +168,19 @@ class Vehicle extends CI_Controller{
 
 		$data=$this->input->get();
 
+		$this->vehicle_model->delete_assignment($data['id']);
+
+		redirect('vehicle/assignment', 'refresh');
+
+	}
+	
+	function unassign()
+	{
+		$data=$this->input->get();
+
 		$this->vehicle_model->delete_vehicle($data['id']);
 
 		redirect('vehicle/vehicle_list', 'refresh');
-
 	}
 	
 	function edit()

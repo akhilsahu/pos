@@ -38,6 +38,13 @@ class Vehicle_model extends CI_Model{
 		return $result;
 	}
 	
+	function delete_assignment($id)
+	{
+		$sql="delete from tab_vehicle_assignment where int_assignment_id=".$id."";
+		$query=$this->db->query($sql);
+		return $query;
+	}
+	
 	function assign_vehicle($data)
 	{
 		$sql_product="insert into tab_vehicle_assignment values(DEFAULT,'".$data['staff_assign']."','".$data['vehicle_assign']."','".$data['user_id']."','".date('Y-m-d')."')";
