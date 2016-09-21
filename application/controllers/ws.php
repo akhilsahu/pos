@@ -84,7 +84,28 @@ class Ws extends CI_Controller{
 
 	function save_transaction()
 	{
-		
+		$data=$this->input->post();
+		$response=array();
+		if(isset($data['secret']) && isset($data['destination']) && isset($data['quantity']) && isset($data['source']))
+		{
+			$total=$this->fare_model->save_transaction($data);
+			if($total!='0')
+			{
+				$response['fare']=$total;
+				$response['code']="200";
+			}
+			else
+			{
+				$response['error']="Error Occured";
+				$response['code']="202";
+			}
+		}
+		else
+		{
+			$response['error']="Invalid Input";
+			$response['code']="501";
+		}
+		echo json_encode($response);
 	}
 }
 ?>

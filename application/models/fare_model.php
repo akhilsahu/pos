@@ -22,6 +22,13 @@ class Fare_model extends CI_Model{
 		return $result;
 	}
 	
+	function save_transaction($data)
+	{
+		$sql_product="insert into tab_transactions values(DEFAULT,'".$data['source']."','".$data['destination']."','".$data['quantity']."','".$data['fare']."','".$data['organization']."','".$data['secret']."','".date('Y-m-d H:i:s')."','".$data['vehicle']."')";
+		$query=$this->db->query($sql_product);
+		return 1;
+	}
+	
 	function get_org_fares($org_id)
 	{
 		
