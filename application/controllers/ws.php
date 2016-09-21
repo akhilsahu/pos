@@ -97,6 +97,7 @@ class Ws extends CI_Controller{
 			$destination_detail=$this->location_model->get_location_details($data['destination']);
 			$ticket['destination']=$destination_detail[0]['txt_location'];
 			$ticket['fare']=$data['fare'];
+			$ticket['quantity']=$data['quantity'];
 			$ticket['datetime']=$data['datetime']=date("Y-m-d H:i:s");
 			$result=$this->fare_model->save_transaction($data);
 			if($result)
