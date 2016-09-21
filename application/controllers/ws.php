@@ -40,7 +40,8 @@ class Ws extends CI_Controller{
 	
 	function get_locations()
 	{
-		$locations=$this->location_model->get_all_locations();
+		$organization_id=$_POST['organization'];
+		$locations=$this->location_model->get_org_locations($organization_id);
 		$response=array();
 		if(count($locations)>0)
 		{
