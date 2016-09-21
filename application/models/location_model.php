@@ -30,6 +30,15 @@ class Location_model extends CI_Model{
 		return $result;
 	}
 	
+	function get_location_details($id)
+	{
+		
+		$sql="select * from tab_locations where int_location_id=".$id."";
+		$query=$this->db->query($sql);
+		$result=$query->result_array();
+		return $result;
+	}
+	
 
 	function delete_location($id)
 	{

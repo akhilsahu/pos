@@ -24,7 +24,7 @@ class Fare_model extends CI_Model{
 	
 	function save_transaction($data)
 	{
-		$sql_product="insert into tab_transactions values(DEFAULT,'".$data['source']."','".$data['destination']."','".$data['quantity']."','".$data['fare']."','".$data['organization']."','".$data['secret']."','".date('Y-m-d H:i:s')."','".$data['vehicle']."')";
+		$sql_product="insert into tab_transactions values(DEFAULT,'".$data['source']."','".$data['destination']."','".$data['quantity']."','".$data['fare']."','".$data['organization']."','".$data['secret']."','".$data['datetime']."','".$data['vehicle']."')";
 		$query=$this->db->query($sql_product);
 		return 1;
 	}

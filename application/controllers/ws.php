@@ -8,6 +8,7 @@ class Ws extends CI_Controller{
 		$this->load->model('user_model');
 		$this->load->model('fare_model');
 		$this->load->model('location_model');
+		$this->load->model('organization_model');
 		error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 		header('Access-Control-Allow-Origin: *');
 	}
@@ -86,12 +87,21 @@ class Ws extends CI_Controller{
 	{
 		$data=$this->input->post();
 		$response=array();
+		$ticket=array();
 		if(isset($data['secret']) && isset($data['destination']) && isset($data['quantity']) && isset($data['source']))
 		{
-			$total=$this->fare_model->save_transaction($data);
-			if($total!='0')
+			$organization_detail=$this->organization_model->get_organization_details($data['organization']);
+			$ticket['organization']=$organization_detail[0]['txt_name'];
+			$source_detail=$this->location_model->get_location_details($data['source']);
+			$ticket['source']=$source[0]['txt_location'];
+			$destination_detail=$this->location_model->get_location_details($data['destination']);
+			$ticket['destination']=$source[0]['txt_location'];
+			$ticket['fare']=$data['fare'];
+			$ticket['datetime']=$data['datetime']=date("Y-m-d H:i:s");
+			$result=$this->fare_model->save_transaction($data);
+			if($result)
 			{
-				$response['fare']=$total;
+				$response['ticket']=$ticket;
 				$response['code']="200";
 			}
 			else
