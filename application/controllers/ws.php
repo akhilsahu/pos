@@ -118,5 +118,32 @@ class Ws extends CI_Controller{
 		}
 		echo json_encode($response);
 	}
+	
+	function get_transactions()
+	{
+		$data=$this->input->post();
+		$response=array();
+		$ticket=array();
+		if(isset($data['secret']) && isset($data['selected_date']) && isset($data['vehicle']))
+		{
+			$result=$this->fare_model->get_transaction_data($data);
+			if(count($result)>0)
+			{
+				$response['transactions']=$result;
+				$response['code']="200";
+			}
+			else
+			{
+				$response['error']="No data Found";
+				$response['code']="202";
+			}
+		}
+		else
+		{
+			$response['error']="Invalid Input";
+			$response['code']="501";
+		}
+		echo json_encode($response);
+	}
 }
 ?>
