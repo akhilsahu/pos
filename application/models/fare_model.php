@@ -33,7 +33,7 @@ class Fare_model extends CI_Model{
 	{
 		$start_dt=date("Y-m-d",strtotime($data['selected_date']))." 00:00:00";
 		$end_dt=date("Y-m-d",strtotime($data['selected_date']))." 23:59:59";
-	echo	$sql="select a.int_transaction_id, a.int_quantity, a.fl_cost as fare,b.txt_location as source,c.txt_location as destination from tab_transactions as a join tab_locations as b ON a.int_source=b.int_location_id join tab_locations as c ON a.int_destination=c.int_location_id where a.int_vehicle_id='".$data['vehicle']."' and dt_issue>='".$start_dt."' and dt_issue<='".$end_dt."'";exit;
+		$sql="select a.int_transaction_id, a.int_quantity, a.fl_cost as fare,b.txt_location as source,c.txt_location as destination from tab_transactions as a join tab_locations as b ON a.int_source=b.int_location_id join tab_locations as c ON a.int_destination=c.int_location_id where a.int_vehicle_id='".$data['vehicle']."' and dt_issue>='".$start_dt."' and dt_issue<='".$end_dt."'";
 		$query=$this->db->query($sql);
 		$result=$query->result_array();
 		return $result;
