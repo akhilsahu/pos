@@ -38,6 +38,41 @@ class Fare extends CI_Controller{
 		}
 
 	}
+	
+	function list_transaction_admin()
+	{
+		$user=$this->session->userdata('user');
+		$data=$this->input->post();
+		if(isset($user['int_user_id']) && $user['int_user_id']!='')
+
+		{
+			if(isset($data['org_id']) && isset($data['start']) && isset($data['end']))
+			{
+				$data1["page"]="transaction_list_admin";
+				$data1["transactions"]=$this->fare_model->get_org_transaction($data['org_id']);
+				$data1["organizations"]=$this->organization_model->get_all_organizations();
+				$data1["org_id"]=$data['org_id'];
+			}
+			else
+			{
+				$data1["page"]="transaction_list_admin";
+				$data1["transactions"]=array();
+				$data1["organizations"]=$this->organization_model->get_all_organizations();
+				$data1["org_id"]=NULL;
+			}
+
+			$this->load->view('page',$data1);	
+
+		}
+
+		else
+
+		{
+
+			$this->load->view('login');	
+
+		}
+	}
 
 
 
