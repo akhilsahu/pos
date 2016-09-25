@@ -69,10 +69,9 @@ class Staff extends CI_Controller{
 		$user=$this->session->userdata('user');
 		
 		$data['user']=$user['int_user_id'];
-		$data['org_id']=$user['int_organization_id'];
 		$status=$this->staff_model->save($data);
 
-		redirect('staff/staff_list', 'refresh');
+		redirect('staff/staff_list_admin', 'refresh');
 	}
 
 	function save()
@@ -84,9 +83,10 @@ class Staff extends CI_Controller{
 		$user=$this->session->userdata('user');
 		
 		$data['user']=$user['int_user_id'];
+		$data['org_id']=$user['int_organization_id'];
 		$status=$this->staff_model->save($data);
 
-		redirect('staff/staff_list_admin', 'refresh');
+		redirect('staff/staff_list', 'refresh');
 
 	}
 
