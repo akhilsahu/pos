@@ -43,7 +43,7 @@ $user=$this->session->userdata('user');
             </li>
 			 <li class="treeview">
               <a href="">
-                <i class="fa fa-dashboard"></i> <span>Locations</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-dashboard"></i> <span>Stopage</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
                 <li class="active"><a href="<?php echo site_url();?>/location/add_admin"><i class="fa fa-circle-o"></i> Add</a></li>
@@ -95,7 +95,7 @@ $user=$this->session->userdata('user');
             </li>
 			 <li class="treeview">
               <a href="">
-				<i class="fa fa-dashboard"></i> <span>Locations</span> <i class="fa fa-angle-left pull-right"></i>
+				<i class="fa fa-dashboard"></i> <span>Stopage</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
 				<li><a href="<?php echo site_url();?>/location/add"><i class="fa fa-circle-o"></i> Add </a></li>

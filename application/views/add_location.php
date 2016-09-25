@@ -7,13 +7,13 @@ $user=$this->session->userdata('user');
     <div class="col-md-8">
       <div class="box box-info">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Add Location</h3>
+                  <h3 class="box-title">Add Stopage</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
                 <form method="post" action="<?php echo site_url();?>/location/save" enctype="multipart/form-data">
                     <div class="box-body">
 					<div class="form-group">
-                      <label class="col-sm-4 control-label" for="inputEmail3">Name</label>
+                      <label class="col-sm-4 control-label" for="inputEmail3">Stopage Name</label>
                       <div class="col-sm-8">
                         <input type="text" placeholder="Location Name" id="name" name="name" value="" class="form-control">
                       </div>
