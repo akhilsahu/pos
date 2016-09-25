@@ -106,7 +106,7 @@ class User_model extends CI_Model{
 	
 	function get_all_users($user_id)
 	{
-		$query="select * from tab_users where int_user_id!=$user_id";
+		$query="select a.*,b.txt_name as org from tab_users as a left join tab_organizations as b ON a.int_organization_id=b.int_organization_id where a.int_user_id!=$user_id";
 		$query=$this->db->query($query);
 		$result=$query->result_array();
 		return $result;

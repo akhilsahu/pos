@@ -18,6 +18,8 @@ foreach($users as $user)
 						<td>'.$user['txt_email'].'</td>
 						
 						<td>'.$role.'</td>
+						
+						<td>'.$user['org'].'</td>
 
                         <td><a href="'.site_url().'/user/edit?id='.$user['int_user_id'].'">Edit</a>
 
@@ -60,6 +62,8 @@ foreach($users as $user)
 						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Email</th>
 						
 						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Role</th>
+						
+						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Organization</th>
 
 						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Actions</th>
 
