@@ -35,8 +35,45 @@ class Staff extends CI_Controller{
 		}
 
 	}
+	
+	function add_admin()
 
+	{
 
+		$user=$this->session->userdata('user');
+
+		if(isset($user['int_user_id']) && $user['int_user_id']!='')
+
+		{
+
+			$data["page"]="add_staff_admin";
+			$data1["organizations"]=$this->organization_model->get_all_organizations();
+			$this->load->view('page',$data);	
+
+		}
+
+		else
+
+		{
+
+			$this->load->view('login');	
+
+		}
+
+	}
+
+	function save_admin()
+	{
+		$data=$this->input->post();
+
+		$user=$this->session->userdata('user');
+		
+		$data['user']=$user['int_user_id'];
+		$data['org_id']=$user['int_organization_id'];
+		$status=$this->staff_model->save($data);
+
+		redirect('staff/staff_list', 'refresh');
+	}
 
 	function save()
 
@@ -47,10 +84,9 @@ class Staff extends CI_Controller{
 		$user=$this->session->userdata('user');
 		
 		$data['user']=$user['int_user_id'];
-		$data['org_id']=$user['int_organization_id'];
 		$status=$this->staff_model->save($data);
 
-		redirect('staff/staff_list', 'refresh');
+		redirect('staff/staff_list_admin', 'refresh');
 
 	}
 
