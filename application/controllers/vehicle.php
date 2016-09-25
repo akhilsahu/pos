@@ -37,6 +37,32 @@ class Vehicle extends CI_Controller{
 		}
 
 	}
+	
+	function add_admin()
+
+	{
+
+		$user=$this->session->userdata('user');
+
+		if(isset($user['int_user_id']) && $user['int_user_id']!='')
+
+		{
+
+			$data["page"]="add_vehicle_admin";
+			$data["organizations"]=$this->organization_model->get_all_organizations();
+			$this->load->view('page',$data);	
+
+		}
+
+		else
+
+		{
+
+			$this->load->view('login');	
+
+		}
+
+	}
 
 
 
@@ -53,6 +79,21 @@ class Vehicle extends CI_Controller{
 		$status=$this->vehicle_model->save($data);
 
 		redirect('vehicle/vehicle_list', 'refresh');
+
+	}
+	
+	function save_admin()
+
+	{
+
+		$data=$this->input->post();
+
+		$user=$this->session->userdata('user');
+
+		$data['user']=$user['int_user_id'];
+		$status=$this->vehicle_model->save($data);
+
+		redirect('vehicle/vehicle_list_admin', 'refresh');
 
 	}
 
