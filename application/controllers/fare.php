@@ -95,6 +95,7 @@ class Fare extends CI_Controller{
 			}
 			else
 			{
+				echo "hello";exit;
 				$data1["page"]="transaction_list";
 				$data1["transactions"]=array();
 				$data1["start"]=NULL;
