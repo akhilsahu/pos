@@ -1,7 +1,7 @@
 <?php
 $complete_structure='';
 $org_selected=isset($org_id)?$org_id:'';
-if(count($vehicles)>0)
+if(count($transactions)>0)
 {
 	foreach($transactions as $transaction)
 	{
