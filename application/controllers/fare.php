@@ -85,7 +85,7 @@ class Fare extends CI_Controller{
 		if(isset($user['int_user_id']) && $user['int_user_id']!='')
 
 		{
-			if(isset(isset($data['start']) && isset($data['end']))
+			if(isset($data['start']) && isset($data['end']))
 			{
 				$data['org_id']=$user['int_organization_id'];
 				$data1["page"]="transaction_list";
@@ -95,7 +95,6 @@ class Fare extends CI_Controller{
 			}
 			else
 			{
-				echo "hello";exit;
 				$data1["page"]="transaction_list";
 				$data1["transactions"]=array();
 				$data1["start"]=NULL;
