@@ -52,6 +52,8 @@ class Fare extends CI_Controller{
 				$data1["transactions"]=$this->fare_model->get_org_transaction($data['org_id']);
 				$data1["organizations"]=$this->organization_model->get_all_organizations();
 				$data1["org_id"]=$data['org_id'];
+				$data1["start"]=$data['start'];
+				$data1["end"]=$data['end'];
 			}
 			else
 			{
@@ -59,6 +61,8 @@ class Fare extends CI_Controller{
 				$data1["transactions"]=array();
 				$data1["organizations"]=$this->organization_model->get_all_organizations();
 				$data1["org_id"]=NULL;
+				$data1["start"]=NULL;
+				$data1["end"]=NULL;
 			}
 
 			$this->load->view('page',$data1);	

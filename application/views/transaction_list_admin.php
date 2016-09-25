@@ -30,6 +30,8 @@ if(count($organizations)>0)
 		}
 	}
 }
+$final_start=isset($start)?$start:date('m/d/Y');
+$final_end=isset($end)?$end:date('m/d/Y');
 ?>
 <div class="content-wrapper">
   <div class="row">
@@ -47,10 +49,10 @@ if(count($organizations)>0)
 						</select>
                       </div>
 					   <div class="col-sm-3">
-                        <input type="text" id="start" name="start" value="<?php echo date("m/d/Y");?>" class="form-control">
+                        <input type="text" id="start" name="start" value="<?php echo $final_start;?>" class="form-control">
                       </div>
 					   <div class="col-sm-3">
-                        <input type="text" id="end" name="end" value="<?php echo date("m/d/Y");?>" class="form-control">
+                        <input type="text" id="end" name="end" value="<?php echo $end;?>" class="form-control">
                       </div>
 					  <div class="col-sm-3">
                         <button id="search_transaction" class="btn btn-info pull-right" type="submit">Search</button>
