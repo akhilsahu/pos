@@ -92,6 +92,8 @@ $(document).ready(function(){
       return false;
     }
   });
+  $("#start").datepicker();
+  $("#end").datepicker();
   $("#search_transaction").click(function(){
     if($("#org_id").val()==""){alert("Please select Organization");$("#org_id").focus();return false;}
 	if($("#start").val()==""){alert("Please select start date");$("#start").focus();return false;}
