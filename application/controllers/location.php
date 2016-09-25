@@ -35,6 +35,47 @@ class Location extends CI_Controller{
 		}
 
 	}
+	
+	function add_admin()
+
+	{
+
+		$user=$this->session->userdata('user');
+
+		if(isset($user['int_user_id']) && $user['int_user_id']!='')
+
+		{
+
+			$data["page"]="add_location_admin";
+
+			$this->load->view('page',$data);	
+
+		}
+
+		else
+
+		{
+
+			$this->load->view('login');	
+
+		}
+
+	}
+	
+	function save_admin()
+
+	{
+
+		$data=$this->input->post();
+
+		$user=$this->session->userdata('user');
+		
+		$data['user']=$user['int_user_id'];
+		$status=$this->location_model->save($data);
+
+		redirect('location/location_list_admin', 'refresh');
+
+	}
 
 
 
