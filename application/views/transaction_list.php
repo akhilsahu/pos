@@ -28,10 +28,20 @@ $final_end=isset($end)?$end:date('m/d/Y');
                     <div class="box-body">
 					<div class="form-group">
                       <div class="col-sm-4">
-                        <input type="text" id="start" name="start" value="<?php echo $final_start;?>" class="form-control">
+                        <div class="input-group">
+						  <div class="input-group-addon">
+							<i class="fa fa-calendar" id="tg"></i>
+						  </div>
+						  <input type="text" id="start" name="start" value="<?php echo $final_start;?>" class="form-control">
+						</div>
                       </div>
 					   <div class="col-sm-4">
-                        <input type="text" id="end" name="end" value="<?php echo $final_end;?>" class="form-control">
+                        <div class="input-group">
+						  <div class="input-group-addon">
+							<i class="fa fa-calendar" id="tg1"></i>
+						  </div>
+						  <input type="text" id="end" name="end" value="<?php echo $final_end;?>" class="form-control">
+						</div>
                       </div>
 					  <div class="col-sm-4">
                         <button id="search_transaction" class="btn btn-info pull-right" type="submit">Search</button>
@@ -78,6 +88,12 @@ $(document).ready(function(){
   $("#search_transaction").click(function(){
 	if($("#start").val()==""){alert("Please select start date");$("#start").focus();return false;}
 	if($("#end").val()==""){alert("Please select end date");$("#end").focus();return false;}
+  });
+  $("#tg").click(function(){
+	$("#start").focus();
+  });
+  $("#tg1").click(function(){
+	$("#end").focus();
   });
 });
 </script>
