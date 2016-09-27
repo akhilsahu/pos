@@ -35,6 +35,16 @@ class Vehicle_model extends CI_Model{
 		$sql="select * from tab_vehicle where int_organization_id='".$org_id."'";
 		$query=$this->db->query($sql);
 		$result=$query->result_array();
+		foreach($result as $record)
+		{
+			$record_id=$record['int_vehicle_id'];
+			$sql_assign="select GROUP_CONCAT(b.txt_name) from tab_vehicle_assignment as a Left join tab_staff as b ON a.int_staff_id=b.int_staff_id where int_vehicle_id=".$record_id."";
+			$query_assign=$this->db->query($sql_assign);
+			$result_assign=$query_assign->result_array();
+			echo "<pre>";
+			print_r($result_assign);
+		}
+		exit;
 		return $result;
 	}
 	
