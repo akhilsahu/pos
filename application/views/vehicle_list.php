@@ -8,6 +8,7 @@ foreach($vehicles as $vehicle)
                         <td>'.$vehicle['txt_model'].'</td>
 						<td>'.$vehicle['txt_manufacturer'].'</td>
 						<td>'.$vehicle['txt_license_plate'].'</td>
+						<td>'.$vehicle['members'].'</td>
                         <td>
                             <a href="'.site_url().'/vehicle/edit?id='.$vehicle['int_vehicle_id'].'">Edit</a>&nbsp;&nbsp;
 							<a class="del_confirm" href="'.site_url().'/vehicle/delete?id='.$vehicle['int_vehicle_id'].'">Delete</a>
@@ -29,6 +30,7 @@ foreach($vehicles as $vehicle)
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Model</th>
 						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Manufacturer</th>
 						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">License Plate</th>
+						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Assignees</th>
 						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Actions</th>
                         </tr>
                     </thead>

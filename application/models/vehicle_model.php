@@ -35,17 +35,17 @@ class Vehicle_model extends CI_Model{
 		$sql="select * from tab_vehicle where int_organization_id='".$org_id."'";
 		$query=$this->db->query($sql);
 		$result=$query->result_array();
+		$final_array=array();
 		foreach($result as $record)
 		{
 			$record_id=$record['int_vehicle_id'];
 			$sql_assign="select array_to_string(array(select b.txt_name from tab_vehicle_assignment as a Left join tab_staff as b ON a.int_staff_id=b.int_staff_id where int_vehicle_id=".$record_id."),',') as names";
 			$query_assign=$this->db->query($sql_assign);
 			$result_assign=$query_assign->result_array();
-			echo "<pre>";
-			print_r($result_assign);
+			$record['members']=$result_assign[0]['names'];
+			$final_array[]=$record;
 		}
-		exit;
-		return $result;
+		return $final_array;
 	}
 	
 	function delete_assignment($id)

@@ -10,6 +10,7 @@ if(count($vehicles)>0)
 							<td>'.$vehicle['txt_model'].'</td>
 							<td>'.$vehicle['txt_manufacturer'].'</td>
 							<td>'.$vehicle['txt_license_plate'].'</td>
+							<td>'.$vehicle['members'].'</td>
 						  </tr>';
 	}
 }
@@ -59,6 +60,7 @@ if(count($organizations)>0)
                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Model</th>
 						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Manufacturer</th>
 						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">License Plate</th>
+						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Assignees</th>
                         </tr>
                     </thead>
                     <tbody>
