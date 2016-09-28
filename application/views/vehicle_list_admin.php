@@ -6,6 +6,8 @@ if(count($vehicles)>0)
 	foreach($vehicles as $vehicle)
 	{
 	  $status=$vehicle['is_approved']=='1'?'Approved':'Unapproved';
+	  $cstatus_name=$vehicle['is_approved']=='1'?'Unapprove':'Approve';
+	  $cstatus_type=$vehicle['is_approved']=='1'?'0':'1';
 	  $complete_structure.='<tr role="row" class="odd">
 							<td>'.$vehicle['int_year'].'</td>
 							<td>'.$vehicle['txt_model'].'</td>
@@ -13,6 +15,10 @@ if(count($vehicles)>0)
 							<td>'.$vehicle['txt_license_plate'].'</td>
 							<td>'.$vehicle['members'].'</td>
 							<td>'.$status.'</td>
+							<td>
+								<a href="'.site_url().'/vehicle/change_status?id='.$vehicle['int_vehicle_id'].'&status='.$cstatus_type.'">'.$cstatus_name.'</a>
+
+							</td>
 						  </tr>';
 	}
 }
