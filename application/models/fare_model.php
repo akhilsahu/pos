@@ -34,16 +34,50 @@ class Fare_model extends CI_Model{
 		echo $filepath='uploads/'.$data['filename'];
 		$final_array=array();
 		if (($handle = fopen($filepath, "r")) !== FALSE) {
-			while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-				print_r($data);
+			while (($data1 = fgetcsv($handle, 1000, ",")) !== FALSE) {
 				$temp_array=array();
-				$temp_array['source']=$data[0];
-				$temp_array['destination']=$data[1];
-				$temp_array['fare']=$data[2];
+				$temp_array['source']=$data1[0];
+				$temp_array['destination']=$data1[1];
+				$temp_array['fare']=$data1[2];
 				$final_array[]=$temp_array;
 			}
 			fclose($handle);
-			print_r($final_array);
+		}
+		$counter=0;
+		$id_array=array();
+		foreach($i=0;$i<count($final_array);$i++)
+		{
+			$temp_id_array=array();
+			if($i==0)
+			{
+				$insert1="insert into tab_locations values(DEFAULT,'".$final_array[$i]['source']."','".$data['org_id']."')";
+				$query1=$this->db->query($insert1);
+				$source_id=$this->db->insert_id();
+				$insert2="insert into tab_locations values(DEFAULT,'".$final_array[$i]['destination']."','".$data['org_id']."')";
+				$query2=$this->db->query($insert2);
+				$destination_id=$this->db->insert_id();
+				$temp_id_array['source']=$source_id;
+				$temp_id_array['destination']=$destination_id;
+				$temp_id_array['fare']=$final_array[$i]['fare'];
+				$sql_fare="insert into tab_fare values(DEFAULT,'".$source_id."','".$destination_id."','".$final_array[$i]['fare']."')";
+				$query_fare=$this->db->query($sql_fare);
+			}
+			else
+			{
+				$insert2="insert into tab_locations values(DEFAULT,'".$final_array[$i]['destination']."','".$data['org_id']."')";
+				$query1=$this->db->query($insert2);
+				$destination_id=$this->db->insert_id();
+				$sql_fare="insert into tab_fare values(DEFAULT,'".$id_array[0]['source']."','".$destination_id."','".$final_array[$i]['fare']."')";
+				$query_fare=$this->db->query($sql_fare);
+				for($j=0;$j<$i;$j++)
+				{
+					$intermediate_cost=$final_array[$i]['fare']-$final_array[$j]['fare'];
+					$source_id=$id_array[$j]['destination'];
+					$sql_fare="insert into tab_fare values(DEFAULT,'".$source_id."','".$destination_id."','".$intermediate_cost."')";
+					$query_fare=$this->db->query($sql_fare);
+				}
+			}
+			$id_array[]=$temp_id_array;
 		}
 		exit;
 	}
