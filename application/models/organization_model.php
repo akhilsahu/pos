@@ -8,7 +8,14 @@ class Organization_model extends CI_Model{
 
 	function save($data)
 	{
-		$sql_product="insert into tab_organizations values(DEFAULT,'".$data['org_name']."','".$data['contact']."','".$data['address']."','".$data['zipcode']."')";
+		$sql_product="insert into tab_organizations values(DEFAULT,'".$data['org_name']."','".$data['contact']."','".$data['address']."','".$data['zipcode']."','1')";
+		$query=$this->db->query($sql_product);
+		return 1;
+	}
+	
+	function modify_status($data)
+	{
+		$sql_product="update tab_organizations set is_active='".$data['status']."' where int_organization_id=".$data['id']."";
 		$query=$this->db->query($sql_product);
 		return 1;
 	}

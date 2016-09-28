@@ -137,5 +137,14 @@ class Organization extends CI_Controller{
 		redirect('organization/organization_list', 'refresh');
 
 	}
+	
+	function change_status()
+	{
+		$data=$this->input->get();
+
+		$this->organization_model->modify_status($data['id']);
+
+		redirect('organization/organization_list', 'refresh');
+	}
 }
 ?>

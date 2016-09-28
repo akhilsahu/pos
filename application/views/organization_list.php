@@ -3,6 +3,8 @@ $complete_structure='';
 
 foreach($organizations as $organization)
 {
+	$action=$organization['is_active']=='1'?'Disable':'Enable';
+	$change_status=$organization['is_active']=='1'?'0':'1';
   $complete_structure.='<tr role="row" class="odd">
                         <td>'.$organization['txt_name'].'</td>
                         <td>'.$organization['txt_contact'].'</td>
@@ -11,6 +13,8 @@ foreach($organizations as $organization)
                         <td><a href="'.site_url().'/organization/edit?id='.$organization['int_organization_id'].'">Edit</a>
                             &nbsp;&nbsp;&nbsp;
                             <a class="del_confirm" href="'.site_url().'/organization/delete?id='.$organization['int_organization_id'].'">Delete</a>
+							&nbsp;&nbsp;&nbsp;
+                            <a class="change_confirm" href="'.site_url().'/organization/change_status?id='.$organization['int_organization_id'].'&status='.$change_status.'">'.$action.'</a>
                         </td>
                       </tr>';
 }
@@ -46,6 +50,16 @@ foreach($organizations as $organization)
 $(document).ready(function(){
   $(".del_confirm").click(function(){
     if(confirm("Are you sure you wish to delete this record?"))
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  });
+  $(".change_confirm").click(function(){
+    if(confirm("Are you sure you wish to change the status?"))
     {
       return true;
     }

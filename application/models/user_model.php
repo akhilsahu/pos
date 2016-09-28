@@ -10,7 +10,7 @@ class User_model extends CI_Model{
 	function verifyUser($data){
 		extract($data);
 		$password=md5($password);
-		$sql="select * from ".$this->table." where (txt_email='".$username."' or lower(txt_email)='".strtolower($username)."') and txt_password='".$password."'  ";
+		$sql="(select a.* from ".$this->table." as a where (txt_email='".$username."' or lower(txt_email)='".strtolower($username)."') and txt_password='".$password."' and int_organization_id=0) UNION (select a.* from ".$this->table." as a left join tab_organizations as b ON a.int_organization_id=b.int_organization_id where (a.txt_email='".$username."' or lower(a.txt_email)='".strtolower($username)."') and a.txt_password='".$password."' and a.int_organization_id!=0 and b.is_active=1)";
 		$query=$this->db->query($sql);
 		$result=$query->result_array();
 		return $result;
