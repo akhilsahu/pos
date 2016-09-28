@@ -16,7 +16,7 @@ if(count($vehicles)>0)
 							<td>'.$vehicle['members'].'</td>
 							<td>'.$status.'</td>
 							<td>
-								<a href="'.site_url().'/vehicle/change_status?id='.$vehicle['int_vehicle_id'].'&status='.$cstatus_type.'">'.$cstatus_name.'</a>
+								<a  class="status_confirm" href="'.site_url().'/vehicle/change_status?id='.$vehicle['int_vehicle_id'].'&status='.$cstatus_type.'">'.$cstatus_name.'</a>
 
 							</td>
 						  </tr>';
@@ -84,8 +84,8 @@ if(count($organizations)>0)
 </div>
 <script>
 $(document).ready(function(){
-  $(".del_confirm").click(function(){
-    if(confirm("Are you sure you wish to delete this record?"))
+  $(".status_confirm").click(function(){
+    if(confirm("Are you sure you wish to change the status?"))
     {
       return true;
     }
