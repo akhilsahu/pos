@@ -32,13 +32,18 @@ class Fare_model extends CI_Model{
 	function import_org_data($data)
 	{
 		echo $filepath='uploads/'.$data['filename'];
+		$final_array=array();
 		if (($handle = fopen($filepath, "r")) !== FALSE) {
 			while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-				$num = count($data);
-				echo "<p> $num fields in line $row: <br /></p>\n";
-				$row++;
+				print_r($data);
+				$temp_array=array();
+				$temp_array['source']=$data[0];
+				$temp_array['destination']=$data[1];
+				$temp_array['fare']=$data[2];
+				$final_array[]=$temp_array;
 			}
 			fclose($handle);
+			print_r($final_array);
 		}
 		exit;
 	}
