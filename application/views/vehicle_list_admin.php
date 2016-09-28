@@ -5,12 +5,14 @@ if(count($vehicles)>0)
 {
 	foreach($vehicles as $vehicle)
 	{
+	  $status=$vehicle['is_approved']=='1'?'Approved':'Unapproved';
 	  $complete_structure.='<tr role="row" class="odd">
 							<td>'.$vehicle['int_year'].'</td>
 							<td>'.$vehicle['txt_model'].'</td>
 							<td>'.$vehicle['txt_manufacturer'].'</td>
 							<td>'.$vehicle['txt_license_plate'].'</td>
 							<td>'.$vehicle['members'].'</td>
+							<td>'.$status.'</td>
 						  </tr>';
 	}
 }
@@ -61,6 +63,7 @@ if(count($organizations)>0)
 						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Manufacturer</th>
 						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">License Plate</th>
 						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Assignees</th>
+						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Status</th>
                         </tr>
                     </thead>
                     <tbody>
