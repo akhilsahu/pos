@@ -45,6 +45,7 @@ $final_end=isset($end)?$end:date('m/d/Y');
                       </div>
 					  <div class="col-sm-4">
                         <button id="search_transaction" class="btn btn-info pull-right" type="submit">Search</button>
+						<a href="#" class="btn btn-primary btn-block">Print</a>
                       </div>
                     </div>
 				  </div>
