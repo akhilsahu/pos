@@ -271,7 +271,7 @@ class Vehicle extends CI_Controller{
 
 		$this->vehicle_model->change_status($data);
 
-		redirect('vehicle/vehicle_list', 'refresh');
+		redirect('vehicle/vehicle_list_admin', 'refresh');
 	}
 	
 }
