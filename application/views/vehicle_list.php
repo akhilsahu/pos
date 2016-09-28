@@ -3,12 +3,14 @@ $complete_structure='';
 
 foreach($vehicles as $vehicle)
 {
+	$status=$vehicle['is_approved']=='1'?'Approved':'Unapproved';
   $complete_structure.='<tr role="row" class="odd">
                         <td>'.$vehicle['int_year'].'</td>
                         <td>'.$vehicle['txt_model'].'</td>
 						<td>'.$vehicle['txt_manufacturer'].'</td>
 						<td>'.$vehicle['txt_license_plate'].'</td>
 						<td>'.$vehicle['members'].'</td>
+						<td>'.$status.'</td>
                         <td>
                             <a href="'.site_url().'/vehicle/edit?id='.$vehicle['int_vehicle_id'].'">Edit</a>&nbsp;&nbsp;
 							<a class="del_confirm" href="'.site_url().'/vehicle/delete?id='.$vehicle['int_vehicle_id'].'">Delete</a>
