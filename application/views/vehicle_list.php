@@ -33,6 +33,7 @@ foreach($vehicles as $vehicle)
 						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Manufacturer</th>
 						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">License Plate</th>
 						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Assignees</th>
+						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Status</th>
 						<th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1">Actions</th>
                         </tr>
                     </thead>
