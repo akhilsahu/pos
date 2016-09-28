@@ -93,6 +93,13 @@ class Vehicle_model extends CI_Model{
 		return 1;
 	}
 	
+	function change_status($data)
+	{
+		$sql_product="update tab_vehicle set is_approved='".$data['status']."' where int_vehicle_id='".$data['id']."'";
+		$query=$this->db->query($sql_product);
+		return 1;
+	}
+	
 }
 
 ?>

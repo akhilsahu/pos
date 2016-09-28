@@ -63,9 +63,7 @@ class Vehicle extends CI_Controller{
 		}
 
 	}
-
-
-
+	
 	function save()
 
 	{
@@ -266,5 +264,15 @@ class Vehicle extends CI_Controller{
 		redirect('vehicle/vehicle_list', 'refresh');
 
 	}
+	
+	function change_status()
+	{
+		$data=$this->input->get();
+
+		$this->vehicle_model->change_status($data);
+
+		redirect('vehicle/vehicle_list', 'refresh');
+	}
+	
 }
 ?>
