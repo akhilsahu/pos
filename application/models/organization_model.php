@@ -15,8 +15,8 @@ class Organization_model extends CI_Model{
 	
 	function modify_status($data)
 	{
-		$sql_product="update tab_organizations set is_active='".$data['status']."' where int_organization_id=".$data['id']."";
-		$query=$this->db->query($sql_product);
+	echo	$sql_product="update tab_organizations set is_active='".$data['status']."' where int_organization_id=".$data['id']."";
+		$query=$this->db->query($sql_product);exit;
 		return 1;
 	}
 
