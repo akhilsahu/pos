@@ -152,7 +152,7 @@ class Fare extends CI_Controller{
 
 		$user=$this->session->userdata('user');
 		
-		if($_FILES['image']['tmp_name']!='')
+		if($_FILES['fare_chart']['tmp_name']!='')
 		{
 			$ext=explode(".",$_FILES["fare_chart"]["name"]);		
 			$file_name=date("YmdHis").".".$ext[count($ext)-1];
@@ -179,7 +179,7 @@ class Fare extends CI_Controller{
 
 		$user=$this->session->userdata('user');
 		
-		if($_FILES['image']['tmp_name']!='')
+		if($_FILES['fare_chart']['tmp_name']!='')
 		{
 			$ext=explode(".",$_FILES["fare_chart"]["name"]);		
 			$file_name=date("YmdHis").".".$ext[count($ext)-1];
