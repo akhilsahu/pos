@@ -31,7 +31,6 @@ class Fare_model extends CI_Model{
 	
 	function import_org_data($data)
 	{
-		echo $filepath='uploads/'.$data['filename'];
 		$final_array=array();
 		if (($handle = fopen($filepath, "r")) !== FALSE) {
 			while (($data1 = fgetcsv($handle, 1000, ",")) !== FALSE) {
@@ -82,7 +81,7 @@ class Fare_model extends CI_Model{
 			}
 			$id_array[]=$temp_id_array;
 		}
-		exit;
+		return 1;
 	}
 	
 	function get_transaction_data($data)
