@@ -45,7 +45,7 @@ class Fare_model extends CI_Model{
 		}
 		$counter=0;
 		$id_array=array();
-		foreach($i=0;$i<count($final_array);$i++)
+		/*foreach($i=0;$i<count($final_array);$i++)
 		{
 			$temp_id_array=array();
 			if($i==0)
@@ -78,7 +78,7 @@ class Fare_model extends CI_Model{
 				}
 			}
 			$id_array[]=$temp_id_array;
-		}
+		}*/
 		exit;
 	}
 	
