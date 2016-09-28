@@ -76,6 +76,9 @@ class Fare_model extends CI_Model{
 					$sql_fare="insert into tab_fare values(DEFAULT,'".$source_id."','".$destination_id."','".$intermediate_cost."')";
 					$query_fare=$this->db->query($sql_fare);
 				}
+				$temp_id_array['source']=$id_array[0]['source'];
+				$temp_id_array['destination']=$destination_id;
+				$temp_id_array['fare']=$final_array[$i]['fare'];
 			}
 			$id_array[]=$temp_id_array;
 		}
