@@ -32,7 +32,7 @@ if(count($organizations)>0)
                       <div class="col-sm-8">
                         <select id="org_id" name="org_id" class="form-control">
 							<option value="">Select Organization</option>
-							<?php echo $location_option;?>
+							<?php echo $option_html;?>
 						</select>
                       </div>
                     </div>
