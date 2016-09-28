@@ -81,6 +81,7 @@ class Fare_model extends CI_Model{
 			}
 			$id_array[]=$temp_id_array;
 		}
+		exit;
 		return 1;
 	}
 	
