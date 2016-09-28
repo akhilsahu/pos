@@ -58,7 +58,7 @@ class Fare extends CI_Controller{
 		$user=$this->session->userdata('user');
 		if(isset($user['int_user_id']) && $user['int_user_id']!='')
 		{
-			$data["page"]="import_form";
+			$data["page"]="import_form_admin";
 			$data["organizations"]=$this->organization_model->get_all_organizations();
 			$this->load->view('page',$data);
 		}
