@@ -29,7 +29,7 @@ class Fare_model extends CI_Model{
 		return 1;
 	}
 	
-	function import_org_data()
+	function import_org_data($data)
 	{
 		echo $filepath='uploads/'.$data['filename'];
 		if (($handle = fopen($filepath, "r")) !== FALSE) {
