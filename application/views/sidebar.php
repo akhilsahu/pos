@@ -56,6 +56,7 @@ $user=$this->session->userdata('user');
               </a>
               <ul class="treeview-menu">
                 <li class="active"><a href="<?php echo site_url();?>/fare/fare_list_admin"><i class="fa fa-circle-o"></i> View</a></li>
+				<li class="active"><a href="<?php echo site_url();?>/fare/import_form_admin"><i class="fa fa-circle-o"></i> Import</a></li>
               </ul>
             </li>
 			<li class="treeview">
@@ -110,6 +111,7 @@ $user=$this->session->userdata('user');
               <ul class="treeview-menu">
 				<li><a href="<?php echo site_url();?>/fare/add"><i class="fa fa-circle-o"></i> Add </a></li>
                 <li class="active"><a href="<?php echo site_url();?>/fare/fare_list"><i class="fa fa-circle-o"></i> View</a></li>
+				<li class="active"><a href="<?php echo site_url();?>/fare/import_form"><i class="fa fa-circle-o"></i> Import</a></li>
               </ul>
             </li>
 			<li class="treeview">

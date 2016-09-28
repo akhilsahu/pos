@@ -39,6 +39,35 @@ class Fare extends CI_Controller{
 
 	}
 	
+	function import_form()
+	{
+		$user=$this->session->userdata('user');
+		if(isset($user['int_user_id']) && $user['int_user_id']!='')
+		{
+			$data["page"]="import_form";
+			$this->load->view('page',$data);
+		}
+		else
+		{
+			$this->load->view('login');	
+		}
+	}
+	
+	function import_form_admin()
+	{
+		$user=$this->session->userdata('user');
+		if(isset($user['int_user_id']) && $user['int_user_id']!='')
+		{
+			$data["page"]="import_form";
+			$data["organizations"]=$this->organization_model->get_all_organizations();
+			$this->load->view('page',$data);
+		}
+		else
+		{
+			$this->load->view('login');	
+		}
+	}
+	
 	function list_transaction_admin()
 	{
 		$user=$this->session->userdata('user');
@@ -112,6 +141,62 @@ class Fare extends CI_Controller{
 			$this->load->view('login');	
 
 		}
+	}
+	
+	
+	function save_import_admin()
+
+	{
+
+		$data=$this->input->post();
+
+		$user=$this->session->userdata('user');
+		
+		if($_FILES['image']['tmp_name']!='')
+		{
+			$ext=explode(".",$_FILES["fare_chart"]["name"]);		
+			$file_name=date("YmdHis").".".$ext[count($ext)-1];
+			move_uploaded_file($_FILES['fare_chart']['tmp_name'],"uploads/".$file_name);
+			$data['filename']=$file_name;
+		}
+		else
+		{
+			$data['filename']='';
+		}
+		
+		$data['user']=$user['int_user_id'];
+		$status=$this->fare_model->import_org_data($data);
+
+		redirect('fare/fare_list_admin', 'refresh');
+
+	}
+	
+	function save_import()
+
+	{
+
+		$data=$this->input->post();
+
+		$user=$this->session->userdata('user');
+		
+		if($_FILES['image']['tmp_name']!='')
+		{
+			$ext=explode(".",$_FILES["fare_chart"]["name"]);		
+			$file_name=date("YmdHis").".".$ext[count($ext)-1];
+			move_uploaded_file($_FILES['fare_chart']['tmp_name'],"uploads/".$file_name);
+			$data['filename']=$file_name;
+		}
+		else
+		{
+			$data['filename']='';
+		}
+		
+		$data['user']=$user['int_user_id'];
+		$data['org_id']=$user['int_organization_id'];
+		$status=$this->fare_model->import_org_data($data);
+
+		redirect('fare/fare_list', 'refresh');
+
 	}
 
 

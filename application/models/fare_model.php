@@ -29,6 +29,20 @@ class Fare_model extends CI_Model{
 		return 1;
 	}
 	
+	function import_org_data()
+	{
+		$filepath='uploads/'.$data['filename'];
+		if (($handle = fopen($filepath, "r")) !== FALSE) {
+			while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+				$num = count($data);
+				echo "<p> $num fields in line $row: <br /></p>\n";
+				$row++;
+			}
+			fclose($handle);
+		}
+		exit;
+	}
+	
 	function get_transaction_data($data)
 	{
 		$start_dt=date("Y-m-d",strtotime($data['selected_date']))." 00:00:00";
