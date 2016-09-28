@@ -60,7 +60,8 @@ class Fare extends CI_Controller{
 		{
 			$data["page"]="import_form_admin";
 			$data["organizations"]=$this->organization_model->get_all_organizations();
-			$this->load->view('page',$data);
+			print_r($data);exit;
+			//$this->load->view('page',$data);
 		}
 		else
 		{
