@@ -142,7 +142,7 @@ class Organization extends CI_Controller{
 	{
 		$data=$this->input->get();
 
-		$this->organization_model->modify_status($data['id']);
+		$this->organization_model->modify_status($data);
 
 		redirect('organization/organization_list', 'refresh');
 	}
