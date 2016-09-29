@@ -60,11 +60,9 @@ if(count($vehicles)>0)
 						</div>
                       </div>
 					  <div class="col-sm-3">
-						<div class="input-group">
-							<button id="search_transaction" class="btn btn-info pull-right" type="submit">Search</button>
-						</div>
-						<div class="input-group">
-							<a href="#" class="btn btn-primary">Print</a>
+							<button id="search_transaction" class="btn btn-info pull-right" type="submit" style="float:left !important;">Search</button>
+							&nbsp;&nbsp;
+							<a href="#" class="btn btn-primary" style="display:inline;float:right;">Print</a>
 						</div>
                       </div>
                     </div>
@@ -107,8 +105,11 @@ $(document).ready(function(){
   $("#start").datepicker();
   $("#end").datepicker();
   $("#search_transaction").click(function(){
-	if($("#start").val()==""){alert("Please select start date");$("#start").focus();return false;}
-	if($("#end").val()==""){alert("Please select end date");$("#end").focus();return false;}
+	if(($("#start").val()=="" || $("#start").val()=="") && $("#vehicle_id").val()=="")
+	{
+		alert("Please enter proper search criteria");
+		return false;
+	}
   });
   $("#tg").click(function(){
 	$("#start").focus();
