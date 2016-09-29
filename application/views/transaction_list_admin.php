@@ -52,7 +52,7 @@ if(($start!='' && $end!='') || $vehicle_id!='')
 {
 	$search=1;
 }
-$query_string='start='.$start.'&end='.$end.'&vehicle='.$vehicle_id.'';
+$query_string='start='.$start.'&end='.$end.'&vehicle='.$vehicle_id.'&org_id='.$org_selected.'';
 ?>
 <div class="content-wrapper">
 	<div class="loader" style="display: none;">
@@ -102,7 +102,7 @@ $query_string='start='.$start.'&end='.$end.'&vehicle='.$vehicle_id.'';
 					  <div class="col-sm-3">
                         <button id="search_transaction" class="btn btn-info pull-right" type="submit" style="float:left !important;">Search</button>
 						&nbsp;&nbsp;
-						<a href="<?php echo site_url(); ?>/fare/print_transaction?<?php echo $query_string;?>" class="btn btn-primary" style="display:inline;float:right;" id="print_btn" target="_blank">Print</a>
+						<a href="<?php echo site_url(); ?>/fare/print_transaction_admin?<?php echo $query_string;?>" class="btn btn-primary" style="display:inline;float:right;" id="print_btn" target="_blank">Print</a>
                       </div>
 					</div>
 				  </div>
@@ -152,8 +152,11 @@ $(document).ready(function(){
   $("#end").datepicker();
   $("#search_transaction").click(function(){
     if($("#org_id").val()==""){alert("Please select Organization");$("#org_id").focus();return false;}
-	if($("#start").val()==""){alert("Please select start date");$("#start").focus();return false;}
-	if($("#end").val()==""){alert("Please select end date");$("#end").focus();return false;}
+	if(($("#start").val()=="" || $("#end").val()=="") && $("#vehicle_id").val()=="")
+	{
+		alert("Please enter proper search criteria");
+		return false;
+	}
   });
   $("#tg").click(function(){
 	$("#start").focus();
