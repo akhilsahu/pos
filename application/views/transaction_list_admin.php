@@ -1,10 +1,12 @@
 <?php
 $complete_structure='';
 $org_selected=isset($org_id)?$org_id:'';
+$total_fare=0;
 if(count($transactions)>0)
 {
 	foreach($transactions as $transaction)
 	{
+	 $total_fare+=$transaction['fare'];
 	  $complete_structure.='<tr role="row" class="odd">
 							<td>'.$transaction['source'].'</td>
 							<td>'.$transaction['destination'].'</td>
@@ -15,6 +17,14 @@ if(count($transactions)>0)
 						  </tr>';
 	}
 }
+$complete_structure='<tr role="row" class="odd">
+							<td><b>Total</b></td>
+							<td>&nbsp;&nbsp;</td>
+							<td>&nbsp;&nbsp;</td>
+							<td>'.$total_fare.'</td>
+							<td>&nbsp;&nbsp;</td>
+							<td>&nbsp;&nbsp;</td>
+						  </tr>'.$complete_structure;
 $option_html='';
 if(count($organizations)>0)
 {
