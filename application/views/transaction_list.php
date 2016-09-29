@@ -32,7 +32,7 @@ if(count($vehicles)>0)
 		}
 	}
 }
-$search=1;
+$search=0;
 if(($start!='' && $end!='') || $vehicle!='')
 {
 	$search=1;
