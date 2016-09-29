@@ -176,7 +176,7 @@ $(document).ready(function(){
 				{
 					var option_html='<option value="">Select Vehicle</option>';
 					$.each(obj.vehicles, function(i, vehicle) {
-						option_html+='<option value="'+obj_location.int_location_id+'">'+obj_location.txt_location+'</option>';
+						option_html+='<option value="'+vehicle.int_location_id+'">'+vehicle.txt_location+'</option>';
 					});
 					$("#vehicle_id").html(option_html);
 					$(".loader").hide();
@@ -190,3 +190,21 @@ $(document).ready(function(){
   });
 });
 </script>
+<style>
+	.loader {
+		background-color: rgba(0, 0, 0, 0.6);
+		height: 100%;
+		left: 0;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 10000;
+	}
+	.loader span{
+	 color: #fff;
+		left: 44%;
+		position: fixed;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+</style>
