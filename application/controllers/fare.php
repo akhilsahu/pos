@@ -115,7 +115,7 @@ class Fare extends CI_Controller{
 		if(isset($user['int_user_id']) && $user['int_user_id']!='')
 
 		{
-			if(isset($data['start']) && isset($data['end']))
+			if((isset($data['start']) && isset($data['end'])) || isset($data['vehicle_id']))
 			{
 				$data['org_id']=$user['int_organization_id'];
 				$data1["page"]="transaction_list";
