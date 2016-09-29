@@ -76,7 +76,7 @@ $query_string='start='.$start.'&end='.$end.'&vehicle='.$vehicle_id.'';
 					  <div class="col-sm-3">
 							<button id="search_transaction" class="btn btn-info pull-right" type="submit" style="float:left !important;">Search</button>
 							&nbsp;&nbsp;
-							<a href="<?php echo site_url(); ?>/fare/print_transaction?<?php echo $query_string;?>" class="btn btn-primary" style="display:inline;float:right;" id="print_btn" target="_blank">Print</a>
+							<a href="<?php echo site_url(); ?>/fare/print_transaction?<?php echo $query_string;?>" class="btn btn-primary" style="display:inline;float:right;" id="print_btn">Print</a>
 						</div>
                       </div>
                     </div>

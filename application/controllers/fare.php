@@ -108,6 +108,15 @@ class Fare extends CI_Controller{
 		}
 	}
 	
+	function print_transaction()
+	{
+		$user=$this->session->userdata('user');
+		$data=$this->input->get();
+		$data['org_id']=$user['int_organization_id'];
+		$data1["transactions"]=$this->fare_model->get_org_transaction($data);
+		$this->load->view('print_transaction',$data1);
+	}
+	
 	function list_transaction()
 	{
 		$user=$this->session->userdata('user');
