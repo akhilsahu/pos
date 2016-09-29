@@ -59,10 +59,13 @@ if(count($vehicles)>0)
 						  </select>
 						</div>
                       </div>
-					  <div class="col-sm-4">
-                        <button id="search_transaction" class="btn btn-info pull-right" type="submit">Search</button>
-						&nbsp;&nbsp;
-						<a href="#" class="btn btn-primary">Print</a>
+					  <div class="col-sm-3">
+						<div class="input-group">
+							<button id="search_transaction" class="btn btn-info pull-right" type="submit">Search</button>
+						</div>
+						<div class="input-group">
+							<a href="#" class="btn btn-primary">Print</a>
+						</div>
                       </div>
                     </div>
 				  </div>
