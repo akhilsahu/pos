@@ -127,7 +127,7 @@ class Fare_model extends CI_Model{
 	
 	function calculate($data)
 	{
-		$sql="select * from tab_fare where int_source='".$data['source']."' and int_destination='".$data['destination']."'";
+		$sql="select * from tab_fare where (int_source='".$data['source']."' and int_destination='".$data['destination']."') OR (int_source='".$data['destination']."' and int_destination='".$data['source']."')";
 		$query=$this->db->query($sql);
 		$result=$query->result_array();
 		$fare_amt=$result[0]['float_fare'];
