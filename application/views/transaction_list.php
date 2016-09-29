@@ -33,7 +33,7 @@ if(count($vehicles)>0)
 	}
 }
 $search=0;
-if(($start!='' && $end!='') || $vehicle!='')
+if(($start!='' && $end!='') || $vehicle_id!='')
 {
 	$search=1;
 }
