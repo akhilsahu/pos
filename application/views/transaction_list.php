@@ -105,7 +105,7 @@ $(document).ready(function(){
   $("#start").datepicker();
   $("#end").datepicker();
   $("#search_transaction").click(function(){
-	if(($("#start").val()=="" || $("#start").val()=="") && $("#vehicle_id").val()=="")
+	if(($("#start").val()=="" || $("#end").val()=="") && $("#vehicle_id").val()=="")
 	{
 		alert("Please enter proper search criteria");
 		return false;
