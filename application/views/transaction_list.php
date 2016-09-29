@@ -32,6 +32,12 @@ if(count($vehicles)>0)
 		}
 	}
 }
+$search=1;
+if(($start!='' && $end!='') || $vehicle!='')
+{
+	$search=1;
+}
+$query_string='start='.$start.'&end='.$end.'&vehicle='.$vehicle_id.'';
 ?>
 <div class="content-wrapper">
   <div class="row">
@@ -45,6 +51,7 @@ if(count($vehicles)>0)
                       <div class="col-sm-3">
                         <div class="input-group">
 						  <div class="input-group-addon">
+							<input type="hidden" id="is_search" name="is_search" value="<?php echo $search; ?>">
 							<i class="fa fa-calendar" id="tg"></i>
 						  </div>
 						  <input type="text" id="start" name="start" value="<?php echo $final_start;?>" class="form-control">
@@ -69,7 +76,7 @@ if(count($vehicles)>0)
 					  <div class="col-sm-3">
 							<button id="search_transaction" class="btn btn-info pull-right" type="submit" style="float:left !important;">Search</button>
 							&nbsp;&nbsp;
-							<a href="#" class="btn btn-primary" style="display:inline;float:right;">Print</a>
+							<a href="<?php echo site_url(); ?>/fare/print_transaction?<?php echo $query_string;?>" class="btn btn-primary" style="display:inline;float:right;" id="print_btn" target="_blank">Print</a>
 						</div>
                       </div>
                     </div>
@@ -108,6 +115,13 @@ $(document).ready(function(){
     {
       return false;
     }
+  });
+  $("#print_btn").click(function(){
+	if($("#is_search")==0)
+	{
+		alert("Please search before print");
+		return false;
+	}
   });
   $("#start").datepicker();
   $("#end").datepicker();
