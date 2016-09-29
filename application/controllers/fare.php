@@ -76,12 +76,12 @@ class Fare extends CI_Controller{
 		if(isset($user['int_user_id']) && $user['int_user_id']!='')
 
 		{
-			if(isset($data['org_id']) && isset($data['start']) && isset($data['end']))
+			if(isset($data['org_id']) && ((isset($data['start']) && isset($data['end'])) || isset($data['vehicle_id'])))
 			{
 				$data1["page"]="transaction_list_admin";
 				$data1["transactions"]=$this->fare_model->get_org_transaction($data);
 				$data1["organizations"]=$this->organization_model->get_all_organizations();
-				$data1["vehicles"]=$this->vehicle_model->get_org_vehicle($user['int_organization_id']);
+				$data1["vehicles"]=$this->vehicle_model->get_org_vehicle($data['org_id']);
 				$data1["org_id"]=$data['org_id'];
 				$data1["start"]=$data['start'];
 				$data1["end"]=$data['end'];
