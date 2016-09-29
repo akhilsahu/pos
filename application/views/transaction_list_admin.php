@@ -32,8 +32,32 @@ if(count($organizations)>0)
 }
 $final_start=isset($start)?$start:date('m/d/Y');
 $final_end=isset($end)?$end:date('m/d/Y');
+$vehicle_list='<option value="">Select Vehicle</option>';
+if(count($vehicles)>0)
+{
+	foreach($vehicles as $vehicle)
+	{
+		if($vehicle['int_vehicle_id']==$vehicle_id)
+		{
+			$vehicle_list.='<option value="'.$vehicle['int_vehicle_id'].'" selected="selected">'.$vehicle['txt_license_plate'].'</option>';
+		}
+		else
+		{
+			$vehicle_list.='<option value="'.$vehicle['int_vehicle_id'].'">'.$vehicle['txt_license_plate'].'</option>';
+		}
+	}
+}
+$search=0;
+if(($start!='' && $end!='') || $vehicle_id!='')
+{
+	$search=1;
+}
+$query_string='start='.$start.'&end='.$end.'&vehicle='.$vehicle_id.'';
 ?>
 <div class="content-wrapper">
+	<div class="loader" style="display: none;">
+		<span class="fa fa-cog fa-spin fa-3x fa-fw" aria-hidden="true"></span>the
+	</div>
   <div class="row">
     <div class="box">
                 <div class="box-header">
@@ -42,13 +66,16 @@ $final_end=isset($end)?$end:date('m/d/Y');
 				<form method="post" action="" enctype="multipart/form-data">
                     <div class="box-body">
 					<div class="form-group">
-                      <div class="col-sm-3">
+                      <div class="col-sm-12">
                         <select id="org_id" name="org_id" class="form-control">
 							<option value="">Select Organization</option>
 							<?php echo $option_html; ?>
 						</select>
                       </div>
-					   <div class="col-sm-3">
+					   
+                    </div>
+					<div class="form-group">
+						<div class="col-sm-3">
 						<div class="input-group">
 						  <div class="input-group-addon">
 							<i class="fa fa-calendar" id="tg"></i>
@@ -66,11 +93,18 @@ $final_end=isset($end)?$end:date('m/d/Y');
                         
                       </div>
 					  <div class="col-sm-3">
+                        <div class="input-group">
+						  <select id="vehicle_id" name="vehicle_id" class="form-control">
+							<?php echo $vehicle_list; ?>
+						  </select>
+						</div>
+                      </div>
+					  <div class="col-sm-3">
                         <button id="search_transaction" class="btn btn-info pull-right" type="submit">Search</button>
 						&nbsp;&nbsp;
-						<a href="#" class="btn btn-primary">Print</a>
+						<a href="<?php echo site_url(); ?>/fare/print_transaction?<?php echo $query_string;?>" class="btn btn-primary" style="display:inline;float:right;" id="print_btn" target="_blank">Print</a>
                       </div>
-                    </div>
+					</div>
 				  </div>
                 </form>
                 <div class="box-body">
@@ -107,6 +141,13 @@ $(document).ready(function(){
       return false;
     }
   });
+  $("#print_btn").click(function(){
+	if($("#is_search")==0)
+	{
+		alert("Please search before print");
+		return false;
+	}
+  });
   $("#start").datepicker();
   $("#end").datepicker();
   $("#search_transaction").click(function(){
@@ -119,6 +160,33 @@ $(document).ready(function(){
   });
   $("#tg1").click(function(){
 	$("#end").focus();
+  });
+  $("#org_id").change(function(){
+	if($(this).val()!="")
+	{
+		$(".loader").show();
+		$.ajax({
+			type: "POST",
+			url: <?php echo site_url();?>"/ws/get_vehicles",
+			data: {'org_id':$(this).val()},
+			datatype: "json",
+			success: function(result) {
+				var obj = $.parseJSON(result);
+				if (obj.code=="200")
+				{
+					var option_html='<option value="">Select Vehicle</option>';
+					$.each(obj.vehicles, function(i, vehicle) {
+						option_html+='<option value="'+obj_location.int_location_id+'">'+obj_location.txt_location+'</option>';
+					});
+					$("#vehicle_id").html(option_html);
+					$(".loader").hide();
+				}
+			},
+			error: function() {
+				console.log("Some Error Occured");
+			}
+		});
+	}
   });
 });
 </script>

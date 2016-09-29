@@ -8,6 +8,7 @@ class Ws extends CI_Controller{
 		$this->load->model('user_model');
 		$this->load->model('fare_model');
 		$this->load->model('location_model');
+		$this->load->model('vehicle_model');
 		$this->load->model('organization_model');
 		error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 		header('Access-Control-Allow-Origin: *');
@@ -52,6 +53,24 @@ class Ws extends CI_Controller{
 		else
 		{
 			$response['error']="No Locations";
+			$response['code']="202";
+		}
+		echo json_encode($response);
+	}
+	
+	function get_vehicles()
+	{
+		$organization_id=$_POST['org_id'];
+		$vehicles=$this->vehicle_model->get_org_vehicle($organization_id);
+		$response=array();
+		if(count($vehicles)>0)
+		{
+			$response['vehicles']=$vehicles;
+			$response['code']="200";
+		}
+		else
+		{
+			$response['error']="No vehicles";
 			$response['code']="202";
 		}
 		echo json_encode($response);
