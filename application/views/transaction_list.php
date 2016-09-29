@@ -17,6 +17,14 @@ if(count($transactions)>0)
 }
 $final_start=isset($start)?$start:date('m/d/Y');
 $final_end=isset($end)?$end:date('m/d/Y');
+
+if(count($vehicles)>0)
+{
+	foreach($vehicles as $vehicle)
+	{
+		$vehicle_list.='<option value="'.$vehicle['int_vehicle_id'].'">'.$vehicle['txt_license_plate'].'</option>';
+	}
+}
 ?>
 <div class="content-wrapper">
   <div class="row">
@@ -27,7 +35,7 @@ $final_end=isset($end)?$end:date('m/d/Y');
 				<form method="post" action="" enctype="multipart/form-data">
                     <div class="box-body">
 					<div class="form-group">
-                      <div class="col-sm-4">
+                      <div class="col-sm-3">
                         <div class="input-group">
 						  <div class="input-group-addon">
 							<i class="fa fa-calendar" id="tg"></i>
@@ -35,12 +43,20 @@ $final_end=isset($end)?$end:date('m/d/Y');
 						  <input type="text" id="start" name="start" value="<?php echo $final_start;?>" class="form-control">
 						</div>
                       </div>
-					   <div class="col-sm-4">
+					   <div class="col-sm-3">
                         <div class="input-group">
 						  <div class="input-group-addon">
 							<i class="fa fa-calendar" id="tg1"></i>
 						  </div>
 						  <input type="text" id="end" name="end" value="<?php echo $final_end;?>" class="form-control">
+						</div>
+                      </div>
+					  <div class="col-sm-3">
+                        <div class="input-group">
+						  <select id="vehicle_id" name="vehicle_id" class="form-control">
+							<option value="">Select Vehicle</option>
+							<?php echo $vehicle_list; ?>
+						  </select>
 						</div>
                       </div>
 					  <div class="col-sm-4">
