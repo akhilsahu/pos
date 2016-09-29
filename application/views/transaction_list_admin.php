@@ -100,7 +100,7 @@ $query_string='start='.$start.'&end='.$end.'&vehicle='.$vehicle_id.'';
 						</div>
                       </div>
 					  <div class="col-sm-3">
-                        <button id="search_transaction" class="btn btn-info pull-right" type="submit">Search</button>
+                        <button id="search_transaction" class="btn btn-info pull-right" type="submit" style="float:left !important;">Search</button>
 						&nbsp;&nbsp;
 						<a href="<?php echo site_url(); ?>/fare/print_transaction?<?php echo $query_string;?>" class="btn btn-primary" style="display:inline;float:right;" id="print_btn" target="_blank">Print</a>
                       </div>
@@ -176,7 +176,7 @@ $(document).ready(function(){
 				{
 					var option_html='<option value="">Select Vehicle</option>';
 					$.each(obj.vehicles, function(i, vehicle) {
-						option_html+='<option value="'+vehicle.int_location_id+'">'+vehicle.txt_location+'</option>';
+						option_html+='<option value="'+vehicle.int_vehicle_id+'">'+vehicle.txt_license_plate+'</option>';
 					});
 					$("#vehicle_id").html(option_html);
 					$(".loader").hide();
