@@ -18,11 +18,9 @@ if(count($transactions)>0)
 ?>
 <div class="content-wrapper">
 	<div class="row">
-		<div class="box">
-            <table cellspacing="0" cellpadding="0" border="1" style="width:100%;">
+		<table cellspacing="0" cellpadding="0" border="1" style="width:100%;">
 			<?php echo $complete_structure; ?>
-			</table>
-		</div>
+		</table>
 	</div>
 </div>
 <script>
