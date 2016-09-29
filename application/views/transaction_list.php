@@ -22,7 +22,14 @@ if(count($vehicles)>0)
 {
 	foreach($vehicles as $vehicle)
 	{
-		$vehicle_list.='<option value="'.$vehicle['int_vehicle_id'].'">'.$vehicle['txt_license_plate'].'</option>';
+		if($vehicle['int_vehicle_id']==$vehicle_id)
+		{
+			$vehicle_list.='<option value="'.$vehicle['int_vehicle_id'].'" selected="selected">'.$vehicle['txt_license_plate'].'</option>';
+		}
+		else
+		{
+			$vehicle_list.='<option value="'.$vehicle['int_vehicle_id'].'">'.$vehicle['txt_license_plate'].'</option>';
+		}
 	}
 }
 ?>
