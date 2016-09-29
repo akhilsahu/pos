@@ -167,7 +167,7 @@ $(document).ready(function(){
 		$(".loader").show();
 		$.ajax({
 			type: "POST",
-			url: <?php echo site_url();?>"/ws/get_vehicles",
+			url: '<?php echo site_url();?>/ws/get_vehicles',
 			data: {'org_id':$(this).val()},
 			datatype: "json",
 			success: function(result) {
