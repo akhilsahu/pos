@@ -23,8 +23,16 @@ class Ws extends CI_Controller{
 			$status=$this->staff_model->verify($data);
 			if(count($status)>0)
 			{
-				$response['details']=$status;
-				$response['code']="200";
+				if($status['error']!='')
+				{
+					$response['error']=$status['error'];
+					$response['code']="201";
+				}
+				else
+				{
+					$response['details']=$status;
+					$response['code']="200";
+				}
 			}
 			else
 			{
