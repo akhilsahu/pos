@@ -7,7 +7,7 @@
 include("header.php");
 
 include("sidebar.php");
-
+echo $page;exit;
 include("$page".".php");
 
 include("footer.php");
