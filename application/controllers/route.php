@@ -21,7 +21,7 @@ class Route extends CI_Controller{
 		{
 
 			$data["page"]="add_route";
-			$data["locations"]=$this->organization_model->get_org_locations($user['int_organization_id']);
+			$data["locations"]=$this->location_model->get_org_locations($user['int_organization_id']);
 			$this->load->view('page',$data);	
 
 		}
