@@ -8,7 +8,7 @@ include("header.php");
 
 include("sidebar.php");
 
-include("$page".".php");
+//include("$page".".php");include("add_route1.php");
 
 include("footer.php");
 ?>

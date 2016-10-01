@@ -1,5 +1,4 @@
 <?php
-echo "hello";exit;
 $user=$this->session->userdata('user');
 $option_html='';
 $complete_html='';
