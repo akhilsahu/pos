@@ -2,7 +2,6 @@
 $user=$this->session->userdata('user');
 $option_html='';
 $complete_html.='';
-echo "hello";exit;
 if(count($locations)>0)
 {
 	foreach($locations as $location)
@@ -14,7 +13,7 @@ if(count($locations)>0)
 		$complete_html.='<div class="form-group">
 						  <label class="col-sm-4 control-label" for="inputEmail3">Stopage '.$i.'</label>
 						  <div class="col-sm-8">
-							<select id="stopage_'..'" name="stopage_'..'" class="form-control">
+							<select id="stopage_'.$i.'" name="stopage_'.$i.'" class="form-control">
 								<option value="">Select Stopage</option>
 									'.$option_html.'
 								</option>
