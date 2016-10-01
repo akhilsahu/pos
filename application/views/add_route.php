@@ -2,6 +2,7 @@
 $user=$this->session->userdata('user');
 $option_html='';
 $complete_html.='';
+echo "hello";exit;
 if(count($locations)>0)
 {
 	foreach($locations as $location)
