@@ -10,15 +10,16 @@ class Route_model extends CI_Model{
 	{
 		$sql_route="insert into tab_routes values(DEFAULT,'".$data['name']."','".$data['org_id']."')";
 		$query=$this->db->query($sql_route);
-		$last_id=$this->db->insert_id();
+		echo $last_id=$this->db->insert_id();
 		for($i=1;$i<=$data['stopage_count'];$i++)
 		{
 			if($data['stopage_'.$i.'']!='')
 			{
-				$sql_stopage="insert into tab_route_locations(DEFAULT,'".$last_id."','".$data['stopage_'.$i.'']."')";
+			echo	$sql_stopage="insert into tab_route_locations(DEFAULT,'".$last_id."','".$data['stopage_'.$i.'']."')";
 				$query=$this->db->query($sql_stopage);
 			}
 		}
+		exit;
 		return 1;
 	}
 
