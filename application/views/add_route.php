@@ -7,7 +7,7 @@ if(count($locations)>0)
 {
 	foreach($locations as $location)
 	{
-		$option_html.='<option value="">'.$location['txt_location'].'</option>';
+		$option_html.='<option value="'.$location['int_location_id'].'">'.$location['txt_location'].'</option>';
 	}
 	for($i=1;$i<=count($locations);$i++)
 	{
