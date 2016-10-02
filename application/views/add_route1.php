@@ -1,6 +1,6 @@
 <?php
 $user=$this->session->userdata('user');
-$option_html='';
+/*$option_html='';
 $complete_html='';
 
 if(count($locations)>0)
@@ -22,7 +22,7 @@ if(count($locations)>0)
 						  </div>
 						</div>';
 	}
-}
+}*/
 ?>
 <div class="content-wrapper">
 <div class="row">
