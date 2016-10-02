@@ -110,7 +110,7 @@ class Route extends CI_Controller{
 
 			$data["page"]="route_list";
 
-			$data["routes"]=$this->location_model->get_org_routes($user['int_organization_id']);
+			$data["routes"]=$this->route_model->get_org_routes($user['int_organization_id']);
 			$this->load->view('page',$data);	
 
 		}
