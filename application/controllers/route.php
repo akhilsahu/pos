@@ -6,6 +6,7 @@ class Route extends CI_Controller{
 		$this->load->database();
 		$this->load->model('location_model');
 		$this->load->model('organization_model');
+		$this->load->model('route_model');
 		error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 		header('Access-Control-Allow-Origin: *');
 	}
@@ -89,15 +90,15 @@ class Route extends CI_Controller{
 		
 		$data['user']=$user['int_user_id'];
 		$data['org_id']=$user['int_organization_id'];
-		$status=$this->location_model->save($data);
+		$status=$this->route_model->save($data);
 
-		redirect('location/location_list', 'refresh');
+		redirect('route/route_list', 'refresh');
 
 	}
 
 	
 
-	function location_list()
+	function route_list()
 
 	{
 
@@ -107,9 +108,9 @@ class Route extends CI_Controller{
 
 		{
 
-			$data["page"]="location_list";
+			$data["page"]="route_list";
 
-			$data["locations"]=$this->location_model->get_org_locations($user['int_organization_id']);
+			$data["routes"]=$this->location_model->get_org_routes($user['int_organization_id']);
 			$this->load->view('page',$data);	
 
 		}
@@ -167,9 +168,9 @@ class Route extends CI_Controller{
 
 		$data=$this->input->get();
 
-		$this->location_model->delete_location($data['id']);
+		$this->route_model->delete_route($data['id']);
 
-		redirect('location/location_list', 'refresh');
+		redirect('route/route_list', 'refresh');
 
 	}
 }
