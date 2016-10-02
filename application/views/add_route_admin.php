@@ -78,7 +78,8 @@ $(document).ready(function(){
 						option_html+='<option value="'+locations.int_location_id+'">'+locations.txt_location+'</option>';
 					});
 					var total_html='';
-					for(var i=1;i<=count(obj.details);i++)
+					var location=obj.details;
+					for(var i=1;i<=location.length;i++)
 					{
 						total_html+='<div class="form-group"><label class="col-sm-4 control-label" for="inputEmail3">Stopage '+i+'</label><div class="col-sm-8"><select id="stopage_'+i+'" name="stopage_'+i+'" class="form-control"><option value="">Select Stopage</option>'+option_html+'</option></select></div></div>';
 					}
