@@ -34,6 +34,12 @@ if(count($locations)>0)
                 <!-- form start -->
                 <form method="post" action="<?php echo site_url();?>/route/save" enctype="multipart/form-data">
                     <div class="box-body">
+					<div class="form-group">
+					  <label class="col-sm-4 control-label" for="inputEmail3">Name</label>
+					  <div class="col-sm-8">
+						<input type="text" id="name" name="name" value="" class="form-control">
+					  </div>
+					</div>
 					<?php echo $complete_html;?>
 				  </div><!-- /.box-body -->
 				  <div class="box-footer">
