@@ -41,7 +41,7 @@ if(count($organizations)>0)
 					<div class="form-group">
 					  <label class="col-sm-4 control-label" for="inputEmail3">Name</label>
 					  <div class="col-sm-8">
-						<input type="hidden" id="stopage_count" name="stopage_count" value="<?php echo count($locations);?>">
+						<input type="hidden" id="stopage_count" name="stopage_count" value="">
 						<input type="text" id="name" name="name" value="" class="form-control">
 					  </div>
 					</div>
@@ -79,6 +79,7 @@ $(document).ready(function(){
 					});
 					var total_html='';
 					var location=obj.details;
+					$("#stopage_count").val(location.length);
 					for(var i=1;i<=location.length;i++)
 					{
 						total_html+='<div class="form-group"><label class="col-sm-4 control-label" for="inputEmail3">Stopage '+i+'</label><div class="col-sm-8"><select id="stopage_'+i+'" name="stopage_'+i+'" class="form-control"><option value="">Select Stopage</option>'+option_html+'</option></select></div></div>';
