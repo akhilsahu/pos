@@ -67,7 +67,7 @@ $(document).ready(function(){
 		$.ajax({
 			type: "POST",
 			url: '<?php echo site_url();?>/ws/get_locations',
-			data: {'org_id':$(this).val()},
+			data: {'organization':$(this).val()},
 			datatype: "json",
 			success: function(result) {
 				var obj = $.parseJSON(result);

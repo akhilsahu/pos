@@ -72,9 +72,9 @@ class Route extends CI_Controller{
 		$user=$this->session->userdata('user');
 		
 		$data['user']=$user['int_user_id'];
-		$status=$this->location_model->save($data);
+		$status=$this->route_model->save($data);
 
-		redirect('location/location_list_admin', 'refresh');
+		redirect('route/route_list_admin', 'refresh');
 
 	}
 
@@ -125,7 +125,7 @@ class Route extends CI_Controller{
 
 	}
 	
-	function location_list_admin()
+	function route_list_admin()
 	{
 		$user=$this->session->userdata('user');
 		$data=$this->input->post();
@@ -135,14 +135,14 @@ class Route extends CI_Controller{
 			if(isset($data['org_id']))
 			{
 				$data1["page"]="location_list_admin";
-				$data1["locations"]=$this->location_model->get_org_locations($data['org_id']);
+				$data1["routes"]=$this->location_model->get_org_locations($data['org_id']);
 				$data1["organizations"]=$this->organization_model->get_all_organizations();
 				$data1["org_id"]=$data['org_id'];
 			}
 			else
 			{
 				$data1["page"]="location_list_admin";
-				$data1["locations"]=array();
+				$data1["routes"]=array();
 				$data1["organizations"]=$this->organization_model->get_all_organizations();
 				$data1["org_id"]=NULL;
 			}
