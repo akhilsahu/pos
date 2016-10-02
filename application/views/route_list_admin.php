@@ -1,13 +1,13 @@
 <?php
 $complete_structure='';
 $org_selected=isset($org_id)?$org_id:'';
-if(count($locations)>0)
+if(count($routes)>0)
 {
-	foreach($locations as $location)
+	foreach($routes as $route)
 	{
 	  $complete_structure.='<tr role="row" class="odd">
-							<td>'.$location['txt_route_name'].'</td>
-							<td>'.$location['stopages'].'</td>
+							<td>'.$route['txt_route_name'].'</td>
+							<td>'.$route['stopages'].'</td>
 						  </tr>';
 	}
 }
