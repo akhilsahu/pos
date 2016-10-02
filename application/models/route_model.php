@@ -16,7 +16,7 @@ class Route_model extends CI_Model{
 		{
 			if($data['stopage_'.$i.'']!='')
 			{
-			echo	$sql_stopage="insert into tab_route_locations(DEFAULT,'".$last_id."','".$data['stopage_'.$i.'']."')";
+			echo	$sql_stopage="insert into tab_route_locations values(DEFAULT,'".$last_id."','".$data['stopage_'.$i.'']."')";
 				$query=$this->db->query($sql_stopage);
 			}
 		}
