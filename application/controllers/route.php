@@ -134,14 +134,14 @@ class Route extends CI_Controller{
 		{
 			if(isset($data['org_id']))
 			{
-				$data1["page"]="location_list_admin";
+				$data1["page"]="route_list_admin";
 				$data1["routes"]=$this->location_model->get_org_locations($data['org_id']);
 				$data1["organizations"]=$this->organization_model->get_all_organizations();
 				$data1["org_id"]=$data['org_id'];
 			}
 			else
 			{
-				$data1["page"]="location_list_admin";
+				$data1["page"]="route_list_admin";
 				$data1["routes"]=array();
 				$data1["organizations"]=$this->organization_model->get_all_organizations();
 				$data1["org_id"]=NULL;
