@@ -125,6 +125,15 @@ class Fare_model extends CI_Model{
 		return $result;
 	}
 	
+	function get_org_fares_device($org_id)
+	{
+		
+		$sql="select a.int_fare_id, a.float_fare as fare,b.int_location_id as source,c.int_location_id as destination from tab_fare as a join tab_locations as b ON a.int_source=b.int_location_id join tab_locations as c ON a.int_destination=c.int_location_id where b.int_organization_id='".$org_id."'";
+		$query=$this->db->query($sql);
+		$result=$query->result_array();
+		return $result;
+	}
+	
 	function calculate($data)
 	{
 		$sql="select * from tab_fare where (int_source='".$data['source']."' and int_destination='".$data['destination']."') OR (int_source='".$data['destination']."' and int_destination='".$data['source']."')";

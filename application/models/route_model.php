@@ -41,7 +41,7 @@ class Route_model extends CI_Model{
 		return $final_array;
 	}
 	
-	function get_org_routes($org_id)
+	function get_org_routes()
 	{
 		$sql="select * from tab_routes where int_organization_id='".$org_id."'";
 		$query=$this->db->query($sql);
@@ -51,6 +51,24 @@ class Route_model extends CI_Model{
 		{
 			$record_id=$record['int_route_id'];
 			$sql_assign="select array_to_string(array(select b.txt_location from tab_route_locations as a Left join tab_locations as b ON a.int_location_id=b.int_location_id where int_route_id=".$record_id."),',') as stopages";
+			$query_assign=$this->db->query($sql_assign);
+			$result_assign=$query_assign->result_array();
+			$record['stopages']=$result_assign[0]['stopages'];
+			$final_array[]=$record;
+		}
+		return $final_array;
+	}
+	
+	function get_org_routes_device($org_id)
+	{
+		$sql="select * from tab_routes where int_organization_id='".$org_id."'";
+		$query=$this->db->query($sql);
+		$result=$query->result_array();
+		$final_array=array();
+		foreach($result as $record)
+		{
+			$record_id=$record['int_route_id'];
+			$sql_assign="select array_to_string(array(select b.int_location_id from tab_route_locations as a Left join tab_locations as b ON a.int_location_id=b.int_location_id where int_route_id=".$record_id."),',') as stopages";
 			$query_assign=$this->db->query($sql_assign);
 			$result_assign=$query_assign->result_array();
 			$record['stopages']=$result_assign[0]['stopages'];
