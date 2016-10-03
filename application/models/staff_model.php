@@ -17,7 +17,7 @@ class Staff_model extends CI_Model{
 	function verify($data)
 	{
 		$password=md5($data['password']);
-		$sql="select a.* from tab_staff as a left join tab_organizations as b ON a.int_organization_id=b.int_organization_id where a.txt_email='".$data['email']."' and a.txt_password='".$password."' and b.is_active=1";
+		$sql="select a.* from tab_staff,b.txt_name as org as a left join tab_organizations as b ON a.int_organization_id=b.int_organization_id where a.txt_email='".$data['email']."' and a.txt_password='".$password."' and b.is_active=1";
 		$query=$this->db->query($sql);
 		$result=$query->result_array();
 		$details=array();
