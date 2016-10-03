@@ -10,6 +10,7 @@ class Ws extends CI_Controller{
 		$this->load->model('location_model');
 		$this->load->model('vehicle_model');
 		$this->load->model('organization_model');
+		$this->load->model('route_model');
 		error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 		header('Access-Control-Allow-Origin: *');
 	}
@@ -157,6 +158,36 @@ class Ws extends CI_Controller{
 			if(count($result)>0)
 			{
 				$response['transactions']=$result;
+				$response['code']="200";
+			}
+			else
+			{
+				$response['error']="No data Found";
+				$response['code']="202";
+			}
+		}
+		else
+		{
+			$response['error']="Invalid Input";
+			$response['code']="501";
+		}
+		echo json_encode($response);
+	}
+	
+	function get_all_data()
+	{
+		$data=$this->input->post();
+		$response=array();
+		if(isset($data['secret']) && isset($data['organization']))
+		{
+			$routes=$this->route_model->get_org_routes($data['organization']);
+			$stopages=$this->location_model->get_org_locations($data['organization']);
+			$fares=$this->fare_model->get_org_fares($data['organization']);
+			if(count($result)>0)
+			{
+				$response['routes']=$routes;
+				$response['stopages']=$stopages;
+				$response['fares']=$fares;
 				$response['code']="200";
 			}
 			else
