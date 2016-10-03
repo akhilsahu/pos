@@ -183,7 +183,7 @@ class Ws extends CI_Controller{
 			$routes=$this->route_model->get_org_routes($data['organization']);
 			$stopages=$this->location_model->get_org_locations($data['organization']);
 			$fares=$this->fare_model->get_org_fares($data['organization']);
-			if(count($routes)>0)
+			if(count($routes)>0 || count($stopages)>0 || count($fares)>0)
 			{
 				$response['routes']=$routes;
 				$response['stopages']=$stopages;
