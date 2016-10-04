@@ -126,7 +126,7 @@ class Ws extends CI_Controller{
 			$ticket['destination']=$destination_detail[0]['txt_location'];
 			$ticket['fare']=$data['fare'];
 			$ticket['quantity']=$data['quantity'];
-			$ticket['datetime']=$data['datetime']=date("Y-m-d H:i:s");
+			$ticket['datetime']=$data['datetime']=isset($data['datetime'])?$data['datetime']:date("Y-m-d H:i:s");
 			$result=$this->fare_model->save_transaction($data);
 			if($result)
 			{
