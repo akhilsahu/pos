@@ -41,7 +41,7 @@ class Route_model extends CI_Model{
 		return $final_array;
 	}
 	
-	function get_org_routes()
+	function get_org_routes($org_id)
 	{
 		$sql="select * from tab_routes where int_organization_id='".$org_id."'";
 		$query=$this->db->query($sql);
