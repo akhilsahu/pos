@@ -49,20 +49,17 @@ if(count($routes)>0)
 	{
 		if($route['int_route_id']==$route_id)
 		{
-			$route_list.='<option value="'.$vehicle['int_route_id'].'" selected="selected">'.$vehicle['txt_route_name'].'</option>';
+			$route_list.='<option value="'.$route['int_route_id'].'" selected="selected">'.$route['txt_route_name'].'</option>';
 		}
 		else
 		{
-			$route_list.='<option value="'.$vehicle['int_route_id'].'">'.$vehicle['txt_route_name'].'</option>';
+			$route_list.='<option value="'.$route['int_route_id'].'">'.$route['txt_route_name'].'</option>';
 		}
 	}
 }
 
 $search=0;
-if(($start!='' && $end!='') || $vehicle_id!='')
-{
-	$search=1;
-}
+
 $query_string='start='.$start.'&end='.$end.'&vehicle='.$vehicle_id.'';
 ?>
 <div class="content-wrapper">
@@ -77,7 +74,6 @@ $query_string='start='.$start.'&end='.$end.'&vehicle='.$vehicle_id.'';
                       <div class="col-sm-3">
                         <div class="input-group">
 						  <div class="input-group-addon">
-							<input type="hidden" id="is_search" name="is_search" value="<?php echo $search; ?>">
 							<i class="fa fa-calendar" id="tg"></i>
 						  </div>
 						  <input type="text" id="start" name="start" value="<?php echo $final_start;?>" class="form-control">
@@ -170,13 +166,7 @@ $(document).ready(function(){
       return false;
     }
   });
-  $("#print_btn").click(function(){
-	if($("#is_search")==0)
-	{
-		alert("Please search before print");
-		return false;
-	}
-  });
+  
   $("#start").datepicker();
   $("#end").datepicker();
   /*$("#search_transaction").click(function(){

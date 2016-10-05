@@ -99,7 +99,37 @@ class Fare_model extends CI_Model{
 	{
 		$extra_query1='';
 		$extra_query2='';
-		if($data['start']!='' && $data['end']!='')
+		$extra_query3='';
+		if(isset($data['time_period']) && $data['time_period']!='')
+		{
+			$end_dt='';
+			$start_dt='';
+			if($data['time_period']=='l7')
+			{
+				$end_dt=date("Y-m-d")." 23:59:59";
+				$start_dt=date('Y-m-d', strtotime('-7 day', strtotime($end_dt)))." 00:00:00";
+			}
+			else if($data['time_period']=='l30')
+			{
+				$end_dt=date("Y-m-d")." 23:59:59";
+				$start_dt=date('Y-m-d', strtotime('-30 day', strtotime($end_dt)))." 00:00:00";
+			}
+			else if($data['time_period']=='cm')
+			{
+				$end_dt=date("Y-m-d")." 23:59:59";
+				$start_dt=date("Y-m-01")." 00:00:00";
+			}
+			else if($data['time_period']=='l30')
+			{
+				$end_dt=date("Y-m-d")." 23:59:59";
+				$start_dt=date("Y-01-01")." 00:00:00";
+			}
+			if($start_dt!='' && $start_dt!='')
+			{
+				$extra_query1="and a.dt_issue>='".$start_dt."' and a.dt_issue<='".$end_dt."'";
+			}
+		}
+		else if($data['start']!='' && $data['end']!='')
 		{
 			$start_dt=date("Y-m-d",strtotime($data['start']))." 00:00:00";
 			$end_dt=date("Y-m-d",strtotime($data['end']))." 23:59:59";
@@ -109,8 +139,12 @@ class Fare_model extends CI_Model{
 		{
 			$extra_query2="and a.int_vehicle_id>='".$data['vehicle_id']."'";
 		}
+		if(isset($data['route_id']) && $data['route_id']!='')
+		{
+			$extra_query3="and a.int_source IN(select int_location_id from tab_route_locations where int_route_id IN(".$data['route_id'].")) and a.int_destination IN(select int_location_id from tab_route_locations where int_route_id IN(".$data['route_id']."))";
+		}
 		
-		$sql="select a.int_transaction_id, a.int_quantity, a.fl_cost as fare,b.txt_location as source,c.txt_location as destination,a.dt_issue,d.txt_license_plate from tab_transactions as a join tab_locations as b ON a.int_source=b.int_location_id join tab_locations as c ON a.int_destination=c.int_location_id left join tab_vehicle as d ON a.int_vehicle_id=d.int_vehicle_id where a.int_organization_id='".$data['org_id']."' ".$extra_query1." ".$extra_query2." order by dt_issue desc";
+		$sql="select a.int_transaction_id, a.int_quantity, a.fl_cost as fare,b.txt_location as source,c.txt_location as destination,a.dt_issue,d.txt_license_plate from tab_transactions as a join tab_locations as b ON a.int_source=b.int_location_id join tab_locations as c ON a.int_destination=c.int_location_id left join tab_vehicle as d ON a.int_vehicle_id=d.int_vehicle_id where a.int_organization_id='".$data['org_id']."' ".$extra_query1." ".$extra_query2."  ".$extra_query3." order by dt_issue desc";
 		$query=$this->db->query($sql);
 		$result=$query->result_array();
 		return $result;
