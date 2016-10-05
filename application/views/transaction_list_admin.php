@@ -254,7 +254,7 @@ $(document).ready(function(){
 				{
 					var option_html='<option value="">Select Routes</option>';
 					$.each(obj.routes, function(i, route) {
-						option_html+='<option value="'+route.route_id+'">'+route.txt_route_name+'</option>';
+						option_html+='<option value="'+route.int_route_id+'">'+route.txt_route_name+'</option>';
 					});
 					$("#route_id").html(option_html);
 					$(".loader").hide();
