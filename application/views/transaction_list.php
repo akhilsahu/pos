@@ -57,6 +57,13 @@ if(count($routes)>0)
 		}
 	}
 }
+if(isset($time_period) && $time_period!='')
+{
+	$op1=$time_period=='l7'?'selected="selected"'?'';
+	$op2=$time_period=='l30'?'selected="selected"'?'';
+	$op3=$time_period=='cm'?'selected="selected"'?'';
+	$op4=$time_period=='cy'?'selected="selected"'?'';
+}
 
 $search=0;
 
@@ -98,10 +105,10 @@ $query_string='start='.$start.'&end='.$end.'&vehicle='.$vehicle_id.'';
 					  <div class="col-sm-3">
 							<select id="time_period" name="time_period" class="form-control">
 								<option value="">Select Time Period</option>
-								<option value="l7">Last 7 days</option>
-								<option value="l30">Last 30 days</option>
-								<option value="cm">This Month</option>
-								<option value="cy">This Year</option>
+								<option value="l7" <?php echo $op1; ?>>Last 7 days</option>
+								<option value="l30" <?php echo $op2; ?>>Last 30 days</option>
+								<option value="cm" <?php echo $op3; ?>>This Month</option>
+								<option value="cy" <?php echo $op4; ?>>This Year</option>
 							</select>
 						</div>
                       </div>

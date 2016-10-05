@@ -137,7 +137,7 @@ class Fare extends CI_Controller{
 		if(isset($user['int_user_id']) && $user['int_user_id']!='')
 
 		{
-			if((isset($data['start']) && isset($data['end'])) || isset($data['vehicle_id']))
+			if((isset($data['start']) && isset($data['end'])) || isset($data['vehicle_id']) || isset($data['time_period']))
 			{
 				$data['org_id']=$user['int_organization_id'];
 				$data1["page"]="transaction_list";
@@ -148,6 +148,7 @@ class Fare extends CI_Controller{
 				$data1["vehicle_id"]=$data['vehicle_id'];
 				$data1["end"]=$data['end'];
 				$data1["route_id"]=$data['route_id'];
+				$data1["time_period"]=$data['time_period'];
 			}
 			else
 			{
@@ -158,7 +159,7 @@ class Fare extends CI_Controller{
 				$data1["start"]=NULL;
 				$data1["end"]=NULL;
 				$data1["vehicle_id"]=NULL;
-				$data1["route_id"]=NULL;
+				$data1["time_period"]=NULL;
 			}
 
 			$this->load->view('page',$data1);	
