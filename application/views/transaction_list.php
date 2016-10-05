@@ -84,6 +84,35 @@ $query_string='start='.$start.'&end='.$end.'&vehicle='.$vehicle_id.'';
 						</div>
                       </div>
 					  <div class="col-sm-3">
+							<select id="time_period" name="time_period" class="form-control">
+								<option value="">Select Time Period</option>
+								<option value="l7">Last 7 days</option>
+								<option value="l30">Last 30 days</option>
+								<option value="cm">This Month</option>
+								<option value="cy">This Year</option>
+							</select>
+						</div>
+                      </div>
+					  <div class="form-group">
+                      <div class="col-sm-3">
+                        <div class="input-group">
+							<select id="route_no" name="route_no" class="form-control">
+								
+							</select>
+						</div>
+                      </div>
+					   <div class="col-sm-3">
+							&nbsp;&nbsp;
+                      </div>
+					  <div class="col-sm-3">
+                        <div class="input-group">
+						  <select id="vehicle_id" name="vehicle_id" class="form-control">
+							<option value="">Select Vehicle</option>
+							<?php echo $vehicle_list; ?>
+						  </select>
+						</div>
+                      </div>
+					  <div class="col-sm-3">
 							<button id="search_transaction" class="btn btn-info pull-right" type="submit" style="float:left !important;">Search</button>
 							&nbsp;&nbsp;
 							<a href="<?php echo site_url(); ?>/fare/print_transaction?<?php echo $query_string;?>" class="btn btn-primary" style="display:inline;float:right;" id="print_btn" target="_blank">Print</a>
@@ -135,13 +164,13 @@ $(document).ready(function(){
   });
   $("#start").datepicker();
   $("#end").datepicker();
-  $("#search_transaction").click(function(){
-	if(($("#start").val()=="" || $("#end").val()=="") && $("#vehicle_id").val()=="")
+  /*$("#search_transaction").click(function(){
+	if(($("#start").val()=="" || $("#end").val()=="") && $("#vehicle_id").val()=="" $("#time_period").val()=="")
 	{
 		alert("Please enter proper search criteria");
 		return false;
 	}
-  });
+  });*/
   $("#tg").click(function(){
 	$("#start").focus();
   });
