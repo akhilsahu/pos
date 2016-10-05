@@ -8,6 +8,7 @@ class Fare extends CI_Controller{
 		$this->load->model('location_model');
 		$this->load->model('organization_model');
 		$this->load->model('vehicle_model');
+		$this->load->model('route_model');
 		error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
 		header('Access-Control-Allow-Origin: *');
 	}
@@ -142,18 +143,22 @@ class Fare extends CI_Controller{
 				$data1["page"]="transaction_list";
 				$data1["transactions"]=$this->fare_model->get_org_transaction($data);
 				$data1["vehicles"]=$this->vehicle_model->get_org_vehicle($user['int_organization_id']);
+				$data1["routes"]=$this->route_model->get_org_routes($user['int_organization_id']);
 				$data1["start"]=$data['start'];
 				$data1["vehicle_id"]=$data['vehicle_id'];
 				$data1["end"]=$data['end'];
+				$data1["route_id"]=$data['route_id'];
 			}
 			else
 			{
 				$data1["page"]="transaction_list";
 				$data1["vehicles"]=$this->vehicle_model->get_org_vehicle($user['int_organization_id']);
+				$data1["routes"]=$this->route_model->get_org_routes($user['int_organization_id']);
 				$data1["transactions"]=array();
 				$data1["start"]=NULL;
 				$data1["end"]=NULL;
 				$data1["vehicle_id"]=NULL;
+				$data1["route_id"]=NULL;
 			}
 
 			$this->load->view('page',$data1);	

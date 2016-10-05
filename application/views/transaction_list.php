@@ -42,6 +42,22 @@ if(count($vehicles)>0)
 		}
 	}
 }
+
+if(count($routes)>0)
+{
+	foreach($routes as $route)
+	{
+		if($route['int_route_id']==$route_id)
+		{
+			$route_list.='<option value="'.$vehicle['int_route_id'].'" selected="selected">'.$vehicle['txt_route_name'].'</option>';
+		}
+		else
+		{
+			$route_list.='<option value="'.$vehicle['int_route_id'].'">'.$vehicle['txt_route_name'].'</option>';
+		}
+	}
+}
+
 $search=0;
 if(($start!='' && $end!='') || $vehicle_id!='')
 {
@@ -93,11 +109,15 @@ $query_string='start='.$start.'&end='.$end.'&vehicle='.$vehicle_id.'';
 							</select>
 						</div>
                       </div>
+					   <div class="form-group">
+					   
+					   </div>
 					  <div class="form-group">
                       <div class="col-sm-3">
                         <div class="input-group">
-							<select id="route_no" name="route_no" class="form-control">
-								
+							<select id="route_id" name="route_id" class="form-control">
+								<option value="">Select Route</option>
+								<?php echo $route_list;?>
 							</select>
 						</div>
                       </div>
@@ -105,12 +125,7 @@ $query_string='start='.$start.'&end='.$end.'&vehicle='.$vehicle_id.'';
 							&nbsp;&nbsp;
                       </div>
 					  <div class="col-sm-3">
-                        <div class="input-group">
-						  <select id="vehicle_id" name="vehicle_id" class="form-control">
-							<option value="">Select Vehicle</option>
-							<?php echo $vehicle_list; ?>
-						  </select>
-						</div>
+							&nbsp;&nbsp;
                       </div>
 					  <div class="col-sm-3">
 							<button id="search_transaction" class="btn btn-info pull-right" type="submit" style="float:left !important;">Search</button>
