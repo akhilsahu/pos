@@ -210,7 +210,7 @@ class Ws extends CI_Controller{
 		$response=array();
 		if(isset($data['org_id']))
 		{
-			$routes=$this->route_model->get_org_routes_device($data['organization']);
+			$routes=$this->route_model->get_org_routes_device($data['org_id']);
 			if(count($routes)>0)
 			{
 				$response['routes']=$routes;
