@@ -59,15 +59,15 @@ if(count($routes)>0)
 }
 if(isset($time_period) && $time_period!='')
 {
-	$op1=$time_period=='l7'?'selected="selected"'?'';
-	$op2=$time_period=='l30'?'selected="selected"'?'';
-	$op3=$time_period=='cm'?'selected="selected"'?'';
-	$op4=$time_period=='cy'?'selected="selected"'?'';
+	$op1=($time_period=='l7')?'selected="selected"':'';
+	$op2=($time_period=='l30')?'selected="selected"':'';
+	$op3=($time_period=='cm')?'selected="selected"':'';
+	$op4=($time_period=='cy')?'selected="selected"':'';
 }
 
 $search=0;
 
-$query_string='start='.$start.'&end='.$end.'&vehicle='.$vehicle_id.'';
+$query_string='start='.$start.'&end='.$end.'&vehicle='.$vehicle_id.'&time_period='.$time_period.'&route_id='.$route_id.'';
 ?>
 <div class="content-wrapper">
   <div class="row">
