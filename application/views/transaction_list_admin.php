@@ -81,7 +81,7 @@ if(isset($time_period) && $time_period!='')
 
 $search=0;
 
-$query_string='start='.$start.'&end='.$end.'&vehicle='.$vehicle_id.'&time_period='.$time_period.'&route_id='.$route_id.'';
+$query_string='start='.$start.'&end='.$end.'&vehicle='.$vehicle_id.'&time_period='.$time_period.'&route_id='.$route_id.'&org_id='.$org_selected.'';
 ?>
 <div class="content-wrapper">
 	<div class="loader" style="display: none;">
