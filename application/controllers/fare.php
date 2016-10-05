@@ -83,10 +83,13 @@ class Fare extends CI_Controller{
 				$data1["transactions"]=$this->fare_model->get_org_transaction($data);
 				$data1["organizations"]=$this->organization_model->get_all_organizations();
 				$data1["vehicles"]=$this->vehicle_model->get_org_vehicle($data['org_id']);
+				$data1["routes"]=$this->route_model->get_org_routes($data['org_id']);
 				$data1["org_id"]=$data['org_id'];
 				$data1["start"]=$data['start'];
 				$data1["end"]=$data['end'];
 				$data1["vehicle_id"]=$data['vehicle_id'];
+				$data1["route_id"]=$data['route_id'];
+				$data1["time_period"]=$data['time_period'];
 			}
 			else
 			{
@@ -94,10 +97,13 @@ class Fare extends CI_Controller{
 				$data1["transactions"]=array();
 				$data1["organizations"]=$this->organization_model->get_all_organizations();
 				$data1["vehicles"]=array();
+				$data1["routes"]=array();
 				$data1["org_id"]=NULL;
 				$data1["start"]=NULL;
 				$data1["end"]=NULL;
 				$data1["vehicle_id"]=NULL;
+				$data1["route_id"]=NULL;
+				$data1["time_period"]=NULL;
 			}
 
 			$this->load->view('page',$data1);	
@@ -159,6 +165,7 @@ class Fare extends CI_Controller{
 				$data1["start"]=NULL;
 				$data1["end"]=NULL;
 				$data1["vehicle_id"]=NULL;
+				$data1["route_id"]=NULL;
 				$data1["time_period"]=NULL;
 			}
 

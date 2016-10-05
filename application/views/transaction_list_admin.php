@@ -57,12 +57,31 @@ if(count($vehicles)>0)
 		}
 	}
 }
-$search=0;
-if(($start!='' && $end!='') || $vehicle_id!='')
+if(count($routes)>0)
 {
-	$search=1;
+	foreach($routes as $route)
+	{
+		if($route['int_route_id']==$route_id)
+		{
+			$route_list.='<option value="'.$route['int_route_id'].'" selected="selected">'.$route['txt_route_name'].'</option>';
+		}
+		else
+		{
+			$route_list.='<option value="'.$route['int_route_id'].'">'.$route['txt_route_name'].'</option>';
+		}
+	}
 }
-$query_string='start='.$start.'&end='.$end.'&vehicle='.$vehicle_id.'&org_id='.$org_selected.'';
+if(isset($time_period) && $time_period!='')
+{
+	$op1=($time_period=='l7')?'selected="selected"':'';
+	$op2=($time_period=='l30')?'selected="selected"':'';
+	$op3=($time_period=='cm')?'selected="selected"':'';
+	$op4=($time_period=='cy')?'selected="selected"':'';
+}
+
+$search=0;
+
+$query_string='start='.$start.'&end='.$end.'&vehicle='.$vehicle_id.'&time_period='.$time_period.'&route_id='.$route_id.'';
 ?>
 <div class="content-wrapper">
 	<div class="loader" style="display: none;">
@@ -110,11 +129,45 @@ $query_string='start='.$start.'&end='.$end.'&vehicle='.$vehicle_id.'&org_id='.$o
 						</div>
                       </div>
 					  <div class="col-sm-3">
+							<select id="time_period" name="time_period" class="form-control">
+								<option value="">Select Time Period</option>
+								<option value="l7" <?php echo $op1; ?>>Last 7 days</option>
+								<option value="l30" <?php echo $op2; ?>>Last 30 days</option>
+								<option value="cm" <?php echo $op3; ?>>This Month</option>
+								<option value="cy" <?php echo $op4; ?>>This Year</option>
+							</select>
+						</div>
+					  <!--<div class="col-sm-3">
+                        <button id="search_transaction" class="btn btn-info pull-right" type="submit" style="float:left !important;">Search</button>
+						&nbsp;&nbsp;
+						<a href="<?php echo site_url(); ?>/fare/print_transaction_admin?<?php echo $query_string;?>" class="btn btn-primary" style="display:inline;float:right;" id="print_btn" target="_blank">Print</a>
+                      </div>-->
+					</div>
+					<div class="form-group">
+						<div class="col-sm-12">&nbsp;&nbsp;</div>
+				   </div>
+				   <div class="form-group">
+                      <div class="col-sm-3">
+                        <div class="input-group">
+							<select id="route_id" name="route_id" class="form-control">
+								<option value="">Select Route</option>
+								<?php echo $route_list;?>
+							</select>
+						</div>
+                      </div>
+					   <div class="col-sm-3">
+							&nbsp;&nbsp;
+                      </div>
+					  <div class="col-sm-3">
+							&nbsp;&nbsp;
+                      </div>
+					  <div class="col-sm-3">
                         <button id="search_transaction" class="btn btn-info pull-right" type="submit" style="float:left !important;">Search</button>
 						&nbsp;&nbsp;
 						<a href="<?php echo site_url(); ?>/fare/print_transaction_admin?<?php echo $query_string;?>" class="btn btn-primary" style="display:inline;float:right;" id="print_btn" target="_blank">Print</a>
                       </div>
-					</div>
+                      </div>
+				   
 				  </div>
                 </form>
                 <div class="box-body">
@@ -151,22 +204,10 @@ $(document).ready(function(){
       return false;
     }
   });
-  $("#print_btn").click(function(){
-	if($("#is_search")==0)
-	{
-		alert("Please search before print");
-		return false;
-	}
-  });
   $("#start").datepicker();
   $("#end").datepicker();
   $("#search_transaction").click(function(){
     if($("#org_id").val()==""){alert("Please select Organization");$("#org_id").focus();return false;}
-	if(($("#start").val()=="" || $("#end").val()=="") && $("#vehicle_id").val()=="")
-	{
-		alert("Please enter proper search criteria");
-		return false;
-	}
   });
   $("#tg").click(function(){
 	$("#start").focus();
@@ -192,6 +233,27 @@ $(document).ready(function(){
 						option_html+='<option value="'+vehicle.int_vehicle_id+'">'+vehicle.txt_license_plate+'</option>';
 					});
 					$("#vehicle_id").html(option_html);
+					$(".loader").hide();
+				}
+			},
+			error: function() {
+				console.log("Some Error Occured");
+			}
+		});
+		$.ajax({
+			type: "POST",
+			url: '<?php echo site_url();?>/ws/get_routes',
+			data: {'org_id':$(this).val()},
+			datatype: "json",
+			success: function(result) {
+				var obj = $.parseJSON(result);
+				if (obj.code=="200")
+				{
+					var option_html='<option value="">Select Routes</option>';
+					$.each(obj.routes, function(i, route) {
+						option_html+='<option value="'+route.route_id+'">'+route.txt_route_name+'</option>';
+					});
+					$("#route_id").html(option_html);
 					$(".loader").hide();
 				}
 			},

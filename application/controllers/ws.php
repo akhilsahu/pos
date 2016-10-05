@@ -203,5 +203,31 @@ class Ws extends CI_Controller{
 		}
 		echo json_encode($response);
 	}
+	
+	function get_routes()
+	{
+		$data=$this->input->post();
+		$response=array();
+		if(isset($data['org_id']))
+		{
+			$routes=$this->route_model->get_org_routes_device($data['organization']);
+			if(count($routes)>0)
+			{
+				$response['routes']=$routes;
+				$response['code']="200";
+			}
+			else
+			{
+				$response['error']="No data Found";
+				$response['code']="202";
+			}
+		}
+		else
+		{
+			$response['error']="Invalid Input";
+			$response['code']="501";
+		}
+		echo json_encode($response);
+	}
 }
 ?>

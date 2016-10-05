@@ -113,7 +113,7 @@ $query_string='start='.$start.'&end='.$end.'&vehicle='.$vehicle_id.'&time_period
 						</div>
                       </div>
 					   <div class="form-group">
-					   
+							<div class="col-sm-12">&nbsp;&nbsp;</div>
 					   </div>
 					  <div class="form-group">
                       <div class="col-sm-3">
